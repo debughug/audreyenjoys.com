@@ -1,0 +1,95 @@
+body {
+  font-family: "Comic Neue", sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h7 {
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1.3;
+  margin: 0 0 25px 0;
+}
+
+h1 {
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+h2 {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+h3 {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+h4 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+h5 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12.5px;
+}
+
+h6 {
+  font-size: 15px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.125em;
+  margin-bottom: 10px;
+  border-bottom: 1px solid white;
+  padding-bottom: 2px;
+}
+
+h7 {
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.125em;
+  margin-bottom: 10px;
+}
+
+@media (max-width: $breakpoint-small) {
+  body {
+    font-size: 26px;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  h2 {
+    font-size: 36px;
+  }
+
+  h3 {
+    font-size: 30px;
+  }
+
+  h4 {
+    font-size: 28px;
+  }
+
+  h5 {
+    font-size: 24px;
+  }
+}

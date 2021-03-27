@@ -1,0 +1,11 @@
+a {
+  cursor: pointer;
+  outline: 0;
+  border: none;
+  text-decoration: none;
+
+  &:visited {
+    outline: none;
+    color: black;
+  }
+}

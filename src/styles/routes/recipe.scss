@@ -1,0 +1,152 @@
+.Viewer {
+  transition: all 0.22s ease-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 25px 50px 100px;
+
+  .content {
+    max-width: 991px;
+    width: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+
+    .intro {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 75px;
+      width: 100%;
+
+      .food-intro {
+        text-align: center;
+        width: calc(50% - 50px);
+        margin-right: 50px;
+        position: relative;
+
+        .food-brand {
+          display: inline-block;
+        }
+      }
+
+      .food-image {
+        border-radius: 15px;
+        position: relative;
+        padding-top: 45%;
+        background-position-x: center;
+        background-position-y: center;
+        background-size: cover;
+        width: 50%;
+        background-color: rgb(200, 200, 200);
+      }
+
+      .social-links {
+        margin-bottom: $spacing-base;
+
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+
+          .fa-instagram {
+            font-size: 34px;
+            margin-right: 5px;
+          }
+
+          .instagram-label {
+            display: inline-block;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+
+    .body {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      width: 100%;
+
+      .ingredients {
+        margin-bottom: 50px;
+        width: calc(50% - 50px);
+        margin-right: 50px;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+      }
+
+      .instructions {
+        width: 50%;
+      }
+    }
+  }
+
+  @media all and (max-width: 768px) {
+    padding: 25px 15px 50px;
+
+    .content {
+      .intro {
+        flex-direction: column;
+        margin-bottom: 25px;
+
+        .food-intro {
+          margin-right: 0;
+          width: 100%;
+
+          .food-name {
+            position: relative;
+          }
+        }
+
+        .food-image {
+          padding-top: 70.25%;
+          margin-bottom: 15px;
+          width: 100%;
+        }
+
+        .social-links {
+          display: block;
+
+          a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+
+            .fa-instagram {
+              font-size: 34px;
+              margin-right: 5px;
+            }
+
+            .instagram-label {
+              display: inline-block;
+              font-size: 20px;
+            }
+          }
+        }
+      }
+
+      .body {
+        flex-direction: column;
+        align-items: center;
+
+        .ingredients {
+          margin-right: 0;
+          margin-bottom: 25px;
+          width: 100%;
+        }
+
+        .instructions {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

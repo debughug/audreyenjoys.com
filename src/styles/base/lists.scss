@@ -1,0 +1,15 @@
+ol,
+ul {
+  margin-bottom: 25px;
+
+  li {
+    margin-left: 15px;
+    margin-bottom: 10px;
+
+    &::before {
+      display: inline-block;
+      width: 15px;
+      margin-right: 10px;
+    }
+  }
+}

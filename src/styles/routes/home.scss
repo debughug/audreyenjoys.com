@@ -1,0 +1,71 @@
+.route-home {
+  background-color: map-get($colors, "color-white-2");
+  padding: $spacing-base 0;
+
+  .recipes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 0 25px;
+
+    .recipe {
+      color: map-get($colors, "color-white");
+      cursor: pointer;
+      border-radius: map-get($borderRadius, "card");
+      text-align: center;
+      margin: 0 ($spacing-base) ($spacing-base * 2);
+      width: calc(25% - #{$spacing-base * 2});
+
+      .food-image {
+        background-size: cover;
+        background-position: center;
+        border-radius: map-get($borderRadius, "card");
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        padding-top: 56.25%;
+      }
+
+      .food-name-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 115px;
+
+        .food-name {
+          padding: $spacing-base ($spacing-base / 2);
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  @media all and (max-width: 991px) {
+    .recipes {
+      padding: 0;
+
+      .recipe {
+        width: calc(33% - #{$spacing-base * 2});
+      }
+    }
+  }
+
+  @media all and (max-width: 768px) {
+    .recipes {
+      justify-content: space-between;
+
+      .recipe {
+        width: calc(50% - #{$spacing-base * 2});
+      }
+    }
+  }
+
+  @media all and (max-width: 556px) {
+    .recipes {
+      .recipe {
+        width: calc(100% - #{$spacing-base * 2});
+        margin-bottom: ($spacing-base * 2);
+      }
+    }
+  }
+}
