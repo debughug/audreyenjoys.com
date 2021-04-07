@@ -1,6 +1,6 @@
 # audreyenjoys.com Documentation
 
-AudreyEnjoys is a food blog by Audrey Stein.
+AudreyEnjoys is a food blog by Audrey Stein. https://audreyenjoys.com/
 
 ## Technologies Used
 
