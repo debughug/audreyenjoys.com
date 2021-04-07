@@ -1,0 +1,22 @@
+@import "~react-awesome-slider/dist/styles.css";
+
+.awssld {
+  --slider-height-percentage: 60%;
+  --slider-transition-duration: 420ms;
+  --organic-arrow-thickness: 2px;
+  --organic-arrow-border-radius: 3px;
+  --organic-arrow-height: 28px;
+  --organic-arrow-color: #ffffff;
+  --control-button-width: 10%;
+  --control-button-height: 25%;
+  --control-button-background: transparent;
+  --control-bullet-color: #f33d42;
+  --control-bullet-active-color: #cf3438;
+  --loader-bar-color: transparent;
+  --loader-bar-height: 0px;
+  --content-background-color: transparent;
+}
+
+.awssld__timer {
+  opacity: 0;
+}

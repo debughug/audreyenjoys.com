@@ -31,7 +31,7 @@ export default class App extends React.Component {
 
           if (assetId === id) {
             isSearching = false;
-            url = assets[i].fields.file.url;
+            url = `${assets[i].fields.file.url}?w=650`;
           }
         }
 
@@ -39,6 +39,7 @@ export default class App extends React.Component {
       };
 
       items.forEach(recipe => {
+        let hasSubImages = typeof recipe.fields.subImages === 'object';
         let fields = recipe.fields;
         let inlineColor = `rgb(${fields.redColorCode}, ${fields.greenColorCode}, ${fields.blueColorCode})`;
         let recipeName = fields.name;
@@ -48,6 +49,9 @@ export default class App extends React.Component {
           .replace(/[\W_]+/g, ' ')
           .replace(/ /g, '-');
         let recipeImageURL = findAssetById(fields.mainImage.sys.id);
+        let recipeSliderURLS = hasSubImages
+          ? recipe.fields.subImages.map(recipeSubImage => findAssetById(recipeSubImage.sys.id))
+          : [];
         let recipeVideoShareLink = fields.instagramShareLink;
         let recipeIngredients = fields.ingredients;
         let recipeInstructions = fields.instructions;
@@ -57,6 +61,7 @@ export default class App extends React.Component {
           recipeName,
           route,
           recipeImageURL,
+          recipeSliderURLS,
           recipeVideoShareLink,
           recipeIngredients,
           recipeInstructions,

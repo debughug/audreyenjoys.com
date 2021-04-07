@@ -34,15 +34,30 @@
         }
       }
 
-      .food-image {
+      .food-asset {
         border-radius: 15px;
         position: relative;
-        padding-top: 45%;
         background-position-x: center;
         background-position-y: center;
         background-size: cover;
         width: 50%;
         background-color: rgb(200, 200, 200);
+
+        &.image {
+          padding-top: 45%;
+        }
+
+        &.carousel {
+          height: 500px;
+
+          .awssld__box {
+            .awssld__content {
+              img {
+                border-radius: 15px;
+              }
+            }
+          }
+        }
       }
 
       .social-links {
@@ -105,10 +120,17 @@
           }
         }
 
-        .food-image {
-          padding-top: 70.25%;
+        .food-asset {
           margin-bottom: 15px;
           width: 100%;
+
+          &.image {
+            padding-top: 70.25%;
+          }
+
+          &.carousel {
+            max-height: 350px;
+          }
         }
 
         .social-links {

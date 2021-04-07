@@ -1,5 +1,8 @@
+import AwesomeSlider from 'react-awesome-slider';
+import withAutoplay from 'react-awesome-slider/dist/autoplay';
 import React from 'react';
 
+const AutoplaySlider = withAutoplay(AwesomeSlider);
 class Recipe extends React.Component {
   constructor(props) {
     super(props);
@@ -16,6 +19,19 @@ class Recipe extends React.Component {
   render() {
     let currentFood = this.state.recipe;
     let instagramVideoLink = currentFood.recipeVideoShareLink;
+    let recipeSliderURLS = currentFood.recipeSliderURLS || [];
+    let allRecipeImages = [currentFood.recipeImageURL].concat(recipeSliderURLS);
+    let hasRecipeSlider = recipeSliderURLS.length > 0;
+
+    let MainAsset = hasRecipeSlider ? (
+      <AutoplaySlider className="food-asset carousel" bullets={false} play={true} interval={3210}>
+        {allRecipeImages.map(url => (
+          <div data-src={url} />
+        ))}
+      </AutoplaySlider>
+    ) : (
+      <div className="food-asset image" style={{ backgroundImage: `url(${currentFood.recipeImageURL})` }}></div>
+    );
 
     return (
       <div className={`Viewer trasition-base`} style={{ backgroundColor: currentFood.inlineColor }}>
@@ -33,7 +49,7 @@ class Recipe extends React.Component {
                 )}
               </div>
             </div>
-            <div className="food-image" style={{ backgroundImage: `url(${currentFood.recipeImageURL}` }}></div>
+            {MainAsset}
           </div>
           <div className="body">
             <div className="ingredients">
