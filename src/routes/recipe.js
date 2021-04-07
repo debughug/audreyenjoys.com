@@ -1,22 +1,20 @@
 import React from 'react';
-import ConfigRecipes from '../configs/recipes';
 
 class Recipe extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      recipe: props.recipe,
+    };
+  }
+
   componentDidMount() {
-    let foodURLName = this.props.match.params.id;
-    let currentFood = ConfigRecipes.filter(food => food.route == foodURLName)[0];
     window.scrollTo(0, 0);
-    window.gtag('config', 'G-4BKRKLRH6D', {
-      page_title: `${currentFood.recipeName}`,
-      page_location: window.location.href,
-      page_path: `/recipe/${currentFood.route}`,
-      send_page_view: true,
-    });
   }
 
   render() {
-    let foodURLName = this.props.match.params.id;
-    let currentFood = ConfigRecipes.filter(food => food.route == foodURLName)[0];
+    let currentFood = this.state.recipe;
     let instagramVideoLink = currentFood.recipeVideoShareLink;
 
     return (
@@ -39,29 +37,17 @@ class Recipe extends React.Component {
           </div>
           <div className="body">
             <div className="ingredients">
-              <h4>Ingredients</h4>
-              {currentFood.recipeIngredients.map(list => (
-                <>
-                  {list.listName && <h5>{list.listName}</h5>}
-                  <ul className="ingredients-list">
-                    {list.list.map(entry => (
-                      <li>{entry}</li>
-                    ))}
-                  </ul>
-                </>
-              ))}
+              <ul className="ingredients-list">
+                <h4>Ingredients</h4>
+                {currentFood.recipeIngredients.map(entry => (
+                  <li>{entry}</li>
+                ))}
+              </ul>
             </div>
             <div className="instructions">
               <h4>Instructions</h4>
-              {currentFood.recipeInstructions.map(list => (
-                <>
-                  {list.listName && <h5>{list.listName}</h5>}
-                  <ul className="ingredients-list">
-                    {list.list.map(entry => (
-                      <li>{entry}</li>
-                    ))}
-                  </ul>
-                </>
+              {currentFood.recipeInstructions.map(entry => (
+                <li>{entry}</li>
               ))}
             </div>
           </div>

@@ -2,13 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 let Home = ({ recipes }) => {
-  window.gtag('config', 'G-4BKRKLRH6D', {
-    page_title: 'Home',
-    page_location: window.location.href,
-    page_path: window.location.pathname,
-    send_page_view: true,
-  });
-
   return (
     <div className="route-home">
       <div className="recipes">
