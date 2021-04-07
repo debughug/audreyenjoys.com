@@ -15,6 +15,7 @@ List of primary technologies used to make this site happen
 | S3-lambo v1.0.0 | To update the S3 asset with what's in Contentful.                    |
 | dotenv v8.2.0   | To store my secret .env file and not expose it in this repo          |
 | Contentful      | So Audrey has a way to update content and not bump me to code it in. |
+| AWS S3          | S3 Recipe file lives here for client to fetch.                       | 
 
 ## Deployment
 
