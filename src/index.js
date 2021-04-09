@@ -2,12 +2,12 @@ import "./styles/index.scss";
 
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import axios from "axios";
 
 import ContentfulHelper from "./helpers/ContentfulHelper";
 
-import Nav from './layouts/nav';
+import Nav from "./layouts/nav";
 import Home from "./routes/home";
 import Recipe from "./routes/recipe";
 
@@ -43,8 +43,9 @@ class App extends React.Component {
           <Route path="/" exact component={Home}>
             <Home recipes={this.state.recipes} />
           </Route>
-          {this.state.recipes.map((recipe) => (
+          {this.state.recipes.map((recipe, index) => (
             <Route
+              key={index}
               path={`/recipe/${recipe.route}`}
               exact
               render={() => <Recipe recipe={recipe}></Recipe>}

@@ -19,8 +19,8 @@ let Recipe = ({ recipe }) => {
       play={true}
       interval={3210}
     >
-      {allRecipeImages.map((url) => (
-        <div data-src={url} />
+      {allRecipeImages.map((url, index) => (
+        <div key={index} data-src={url} />
       ))}
     </AutoplaySlider>
   ) : (
@@ -30,7 +30,6 @@ let Recipe = ({ recipe }) => {
     ></div>
   );
 
-  
   return (
     <div
       className={`Viewer trasition-base`}
@@ -56,25 +55,23 @@ let Recipe = ({ recipe }) => {
           <div className="ingredients">
             <h4>Ingredients</h4>
             <ul className="ingredients-list">
-              {currentFood.recipeIngredients.map((entry) => (
-                <li>{entry}</li>
+              {currentFood.recipeIngredients.map((entry, index) => (
+                <li key={index}>{entry}</li>
               ))}
             </ul>
           </div>
           <div className="instructions">
             <h4>Instructions</h4>
             <ol className="instructions-list">
-              {currentFood.recipeInstructions.map((entry) => (
-                <li>{entry}</li>
+              {currentFood.recipeInstructions.map((entry, index) => (
+                <li key={index}>{entry}</li>
               ))}
             </ol>
           </div>
         </div>
       </div>
     </div>
-  ); 
+  );
 };
-
-
 
 export default Recipe;
