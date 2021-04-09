@@ -10,10 +10,10 @@ let Recipe = ({ recipe }) => {
   let instagramVideoLink = currentFood.recipeVideoShareLink;
   let recipeSliderURLS = currentFood.recipeSliderURLS || [];
   let allRecipeImages = [currentFood.recipeImageURL].concat(recipeSliderURLS);
-  let hasRecipeSlider = recipeSliderURLS.length > 0;
+  let hasRecipeSlider = recipeSliderURLS.length > 0; 
 
   let MainAsset = hasRecipeSlider ? (
-    <AutoplaySlider
+    <AutoplaySlider 
       className="food-asset carousel"
       bullets={false}
       play={true}
@@ -32,14 +32,14 @@ let Recipe = ({ recipe }) => {
 
   return (
     <div
-      className={`Viewer trasition-base`}
+      className={`route-recipe`}
       style={{ backgroundColor: currentFood.inlineColor }}
     >
       <div className="content">
         <div className="intro">
           <div className="food-intro">
-            <h6 className="food-brand">AudreyEnjoys</h6>
-            <h1 className="food-name">{currentFood.recipeName}</h1>
+            <h6>AudreyEnjoys</h6>
+            <h1>{currentFood.recipeName}</h1>
             <div className="social-links">
               {instagramVideoLink && (
                 <a href={instagramVideoLink}>

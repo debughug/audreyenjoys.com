@@ -1,15 +1,16 @@
-.Viewer {
+.route-recipe {
   transition: all 0.22s ease-out;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  padding: 25px 50px 100px;
+  padding: $spacing-base $spacing-base ($spacing-base * 2);
+  min-height: 100vh;
 
   .content {
     max-width: 991px;
     width: 100%;
-    color: white;
+    color: map-get($colors, "color-white");
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -17,21 +18,14 @@
 
     .intro {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      margin-bottom: 75px;
+      margin-bottom: ($spacing-base * 3);
       width: 100%;
 
       .food-intro {
         text-align: center;
-        width: calc(50% - 50px);
-        margin-right: 50px;
-        position: relative;
-
-        .food-brand {
-          display: inline-block;
-        }
       }
 
       .food-asset {
@@ -40,16 +34,15 @@
         background-position-x: center;
         background-position-y: center;
         background-size: cover;
-        width: 50%;
         background-color: rgb(200, 200, 200);
+        max-width: 768px;
+        width: 100%;
 
         &.image {
           padding-top: 45%;
         }
 
         &.carousel {
-          height: 500px;
-
           .awssld__box {
             .awssld__content {
               img {
@@ -75,7 +68,6 @@
           }
 
           .instagram-label {
-            display: inline-block;
             font-size: 20px;
           }
         }
@@ -86,12 +78,14 @@
       display: flex;
       flex-direction: row;
       justify-content: center;
+      max-width: 768px;
+      margin: 0 auto;
       width: 100%;
 
       .ingredients {
-        margin-bottom: 50px;
+        margin-bottom: $spacing-base * 2;
         width: calc(50% - 50px);
-        margin-right: 50px;
+        margin-right: $spacing-base * 2;
         display: flex;
         justify-content: flex-start;
         flex-direction: column;
@@ -104,21 +98,9 @@
   }
 
   @media all and (max-width: 768px) {
-    padding: 25px 15px 50px;
-
     .content {
       .intro {
-        flex-direction: column;
-        margin-bottom: 25px;
-
-        .food-intro {
-          margin-right: 0;
-          width: 100%;
-
-          .food-name {
-            position: relative;
-          }
-        }
+        margin-bottom: $spacing-base * 2;
 
         .food-asset {
           margin-bottom: 15px;
@@ -126,31 +108,6 @@
 
           &.image {
             padding-top: 70.25%;
-          }
-
-          &.carousel {
-            max-height: 350px;
-          }
-        }
-
-        .social-links {
-          display: block;
-
-          a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-
-            .fa-instagram {
-              font-size: 34px;
-              margin-right: 5px;
-            }
-
-            .instagram-label {
-              display: inline-block;
-              font-size: 20px;
-            }
           }
         }
       }

@@ -3,7 +3,7 @@ ul {
   margin-bottom: 25px;
 
   li {
-    margin-left: 15px;
+    margin-left: 35px;
     margin-bottom: 10px;
   }
 }
@@ -35,3 +35,23 @@ ol {
   }
 }
 
+ul {
+  li {
+    &::before {
+      content: "⪀";
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      float: left;
+      margin: 2px 0 0 -32px;
+      border-radius: 100%;
+      border: 0;
+      background-color: #1a1a1c;
+      color: #ffffff;
+      width: 25px;
+      height: 25px;
+      font-size: 12px;
+      line-height: 10px;
+    }
+  }
+}
