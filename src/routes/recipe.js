@@ -42,10 +42,10 @@ class Recipe extends React.Component {
               <h1 className="food-name">{currentFood.recipeName}</h1>
               <div className="social-links">
                 {instagramVideoLink && (
-                  <a href={instagramVideoLink}>
-                    <i className="fab fa-instagram"></i>
-                    <span className="instagram-label">Watch on Instagram</span>
-                  </a>
+            <a href={instagramVideoLink}>
+              <i className="fab fa-instagram"></i>
+              <span className="instagram-label">Watch on Instagram</span>
+            </a>
                 )}
               </div>
             </div>
@@ -53,8 +53,8 @@ class Recipe extends React.Component {
           </div>
           <div className="body">
             <div className="ingredients">
+              <h4>Ingredients</h4>
               <ul className="ingredients-list">
-                <h4>Ingredients</h4>
                 {currentFood.recipeIngredients.map(entry => (
                   <li>{entry}</li>
                 ))}
@@ -62,9 +62,11 @@ class Recipe extends React.Component {
             </div>
             <div className="instructions">
               <h4>Instructions</h4>
-              {currentFood.recipeInstructions.map(entry => (
-                <li>{entry}</li>
-              ))}
+              <ol className='instructions-list'>
+                {currentFood.recipeInstructions.map(entry => (
+                  <li>{entry}</li>
+                ))}
+              </ol>
             </div>
           </div>
         </div>
