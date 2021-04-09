@@ -34,20 +34,14 @@
         background-position-x: center;
         background-position-y: center;
         background-size: cover;
-        background-color: rgb(200, 200, 200);
+        background-color: map-get($colors, "color-white");
         max-width: 768px;
         width: 100%;
 
-        &.image {
-          padding-top: 45%;
-        }
-
-        &.carousel {
-          .awssld__box {
-            .awssld__content {
-              img {
-                border-radius: 15px;
-              }
+        .awssld__box {
+          .awssld__content {
+            img {
+              border-radius: 15px;
             }
           }
         }
@@ -105,10 +99,6 @@
         .food-asset {
           margin-bottom: 15px;
           width: 100%;
-
-          &.image {
-            padding-top: 70.25%;
-          }
         }
       }
 

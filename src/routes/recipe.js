@@ -1,6 +1,6 @@
-import AwesomeSlider from "react-awesome-slider";
-import withAutoplay from "react-awesome-slider/dist/autoplay";
-import React from "react";
+import AwesomeSlider from 'react-awesome-slider';
+import withAutoplay from 'react-awesome-slider/dist/autoplay';
+import React from 'react';
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
@@ -10,31 +10,10 @@ let Recipe = ({ recipe }) => {
   let instagramVideoLink = currentFood.recipeVideoShareLink;
   let recipeSliderURLS = currentFood.recipeSliderURLS || [];
   let allRecipeImages = [currentFood.recipeImageURL].concat(recipeSliderURLS);
-  let hasRecipeSlider = recipeSliderURLS.length > 0; 
-
-  let MainAsset = hasRecipeSlider ? (
-    <AutoplaySlider 
-      className="food-asset carousel"
-      bullets={false}
-      play={true}
-      interval={3210}
-    >
-      {allRecipeImages.map((url, index) => (
-        <div key={index} data-src={url} />
-      ))}
-    </AutoplaySlider>
-  ) : (
-    <div
-      className="food-asset image"
-      style={{ backgroundImage: `url(${currentFood.recipeImageURL})` }}
-    ></div>
-  );
+  let isMultipleImages = allRecipeImages.length > 1;
 
   return (
-    <div
-      className={`route-recipe`}
-      style={{ backgroundColor: currentFood.inlineColor }}
-    >
+    <div className={`route-recipe`} style={{ backgroundColor: currentFood.inlineColor }}>
       <div className="content">
         <div className="intro">
           <div className="food-intro">
@@ -49,7 +28,17 @@ let Recipe = ({ recipe }) => {
               )}
             </div>
           </div>
-          {MainAsset}
+          <AutoplaySlider
+            className={`food-asset carousel`}
+            infinite={isMultipleImages}
+            bullets={false}
+            play={true}
+            interval={3210}
+          >
+            {allRecipeImages.map((url, index) => (
+              <div key={index} data-src={url} />
+            ))}
+          </AutoplaySlider>
         </div>
         <div className="body">
           <div className="ingredients">
