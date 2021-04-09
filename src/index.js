@@ -1,17 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-
-
 import "./styles/index.scss";
 
+import React from "react";
+import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import axios from "axios";
+
 import ContentfulHelper from "./helpers/ContentfulHelper";
 
+import Nav from './layouts/nav';
 import Home from "./routes/home";
 import Recipe from "./routes/recipe";
 
- class App extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -38,28 +38,7 @@ import Recipe from "./routes/recipe";
   render() {
     return (
       <Router>
-        <div className="top-nav">
-          <div className="nav">
-            <div className="logo">
-              <img
-                src="https://audreyenjoys.s3-us-west-2.amazonaws.com/logo-icon.jpg"
-                alt="AudreyEnjoys Profile Picture"
-              ></img>
-            </div>
-            <h1>AudreyEnjoys</h1>
-            <div className="links">
-              <Link to="/">Recipes</Link>
-            </div>
-          </div>
-          <div className="social-links">
-            <a href="mailto:me@audreyenjoys.com" className="email-link">
-              <i className="far fa-envelope"></i>
-            </a>
-            <a href="https://www.instagram.com/audreyenjoys/">
-              <i className="fab fa-instagram"></i>
-            </a>
-          </div>
-        </div>
+        <Nav></Nav>
         <Switch>
           <Route path="/" exact component={Home}>
             <Home recipes={this.state.recipes} />
@@ -77,12 +56,11 @@ import Recipe from "./routes/recipe";
   }
 }
 
-
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
   ReactDOM.render(
     <React.StrictMode>
       <App />
     </React.StrictMode>,
-    document.getElementById('root')
+    document.getElementById("root")
   );
 });
