@@ -4,47 +4,63 @@ import React from 'react';
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
+let InstagramLink = ({ instagramVideoLink }) => {
+  let element = null;
+
+  if (instagramVideoLink) {
+    element = (
+      <a href={instagramVideoLink}>
+        <i className="fab fa-instagram"></i>
+        <span className="instagram-label">Watch on Instagram</span>
+      </a>
+    );
+  }
+
+  return element;
+};
+
 let Recipe = ({ recipe }) => {
   window.scrollTo(0, 0);
-  let currentFood = recipe;
-  let instagramVideoLink = currentFood.recipeVideoShareLink;
-  let recipeSliderURLS = currentFood.recipeSliderURLS || [];
-  let allRecipeImages = [currentFood.recipeImageURL].concat(recipeSliderURLS);
-  let isMultipleImages = allRecipeImages.length > 1;
 
   return (
-    <div className={`route-recipe`} style={{ backgroundColor: currentFood.inlineColor }}>
+    <div className={`route-recipe`} style={{ backgroundColor: recipe.inlineColor }}>
       <div className="content">
         <div className="intro">
           <div className="food-intro">
             <h6>AudreyEnjoys</h6>
-            <h1>{currentFood.recipeName}</h1>
+            <h1>{recipe.recipeName}</h1>
             <div className="social-links">
-              {instagramVideoLink && (
-                <a href={instagramVideoLink}>
-                  <i className="fab fa-instagram"></i>
-                  <span className="instagram-label">Watch on Instagram</span>
-                </a>
-              )}
+              <InstagramLink instagramVideoLink={recipe.recipeVideoShareLink}></InstagramLink>
             </div>
           </div>
           <AutoplaySlider
             className={`food-asset carousel`}
-            infinite={isMultipleImages}
+            infinite={recipe.allRecipeImagesURLS.length > 0}
             bullets={false}
             play={true}
             interval={3210}
           >
-            {allRecipeImages.map((url, index) => (
+            {recipe.allRecipeImagesURLS.map((url, index) => (
               <div key={index} data-src={url} />
             ))}
           </AutoplaySlider>
         </div>
+        {recipe.metaInfo.length && (
+          <div className="metas">
+            <h4>Overview</h4>
+            {recipe.metaInfo.map((data, index) => (
+              <div className="meta" key={index}>
+                <span className="key">{data.label}:</span>
+                <span className="value">{data.value}</span>
+              </div>
+            ))}
+          </div>
+        )}
         <div className="body">
           <div className="ingredients">
             <h4>Ingredients</h4>
             <ul className="ingredients-list">
-              {currentFood.recipeIngredients.map((entry, index) => (
+              {recipe.recipeIngredients.map((entry, index) => (
                 <li key={index}>{entry}</li>
               ))}
             </ul>
@@ -52,7 +68,7 @@ let Recipe = ({ recipe }) => {
           <div className="instructions">
             <h4>Instructions</h4>
             <ol className="instructions-list">
-              {currentFood.recipeInstructions.map((entry, index) => (
+              {recipe.recipeInstructions.map((entry, index) => (
                 <li key={index}>{entry}</li>
               ))}
             </ol>
