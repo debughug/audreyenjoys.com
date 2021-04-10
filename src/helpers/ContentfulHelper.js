@@ -4,6 +4,72 @@ export default class ContentfulHelper {
     this.recipes = recipes;
   }
 
+  buildRecipeObject(recipe) {
+    let getDifficultyValue = (difficulty) => {
+      let value = "";
+
+      for (let i = 0; i < difficulty; i++) {
+        value += "👩‍🍳";
+      }
+
+      return value;
+    };
+
+    let inlineColor = `rgb(${recipe.fields.redColorCode}, ${recipe.fields.greenColorCode}, ${recipe.fields.blueColorCode})`;
+    let recipeName = recipe.fields.name.trim();
+    let route = recipeName.toLowerCase().replace(/[\W_]+/g, "-");
+
+    let recipeImageURL = this.getAssetById(recipe.fields.mainImage.sys.id);
+    let recipeSliderURLS =
+      typeof recipe.fields.subImages === "object"
+        ? recipe.fields.subImages.map((recipeSubImage) =>
+            this.getAssetById(recipeSubImage.sys.id)
+          )
+        : [];
+    let allRecipeImagesURLS = [recipeImageURL].concat(recipeSliderURLS);
+    let recipeVideoShareLink = recipe.fields.instagramShareLink;
+    let recipeIngredients = recipe.fields.ingredients;
+    let recipeInstructions = recipe.fields.instructions;
+    let preparationTime = recipe.fields.preparationTime || null;
+    let cookTime = recipe.fields.cookTime || null;
+    let servingSize = recipe.fields.servingSize || null;
+    let difficulty = recipe.fields.difficulty || null;
+    let metaInfo = [
+      {
+        label: "Preparation Time",
+        displayValue: `${preparationTime} min`,
+        isValid: preparationTime != null,
+      },
+      {
+        label: "Cook Time",
+        displayValue: `${cookTime} min`,
+        isValid: cookTime != null,
+      },
+      {
+        label: "Serving Size",
+        displayValue: `${servingSize} friends`,
+        isValid: servingSize != null,
+      },
+      {
+        label: "Difficulty",
+        displayValue: getDifficultyValue(difficulty),
+        isValid: difficulty != null,
+      },
+    ];
+
+    return {
+      route,
+      recipeName,
+      inlineColor,
+      metaInfo,
+      recipeImageURL,
+      allRecipeImagesURLS,
+      recipeVideoShareLink,
+      recipeIngredients,
+      recipeInstructions,
+    };
+  }
+
   setAssets(assets = []) {
     this.assets = assets;
   }
@@ -15,14 +81,14 @@ export default class ContentfulHelper {
   getAssetById(id) {
     let assets = this.assets;
     let isSearching = true;
-    let url = '';
+    let url = "";
 
     for (let i = 0; i < assets.length && isSearching; i++) {
       let assetId = assets[i].sys.id;
 
       if (assetId === id) {
         isSearching = false;
-        url = `${assets[i].fields.file.url}?w=650`;
+        url = `${assets[i].fields.file.url}?w=750`;
       }
     }
 
@@ -32,86 +98,8 @@ export default class ContentfulHelper {
   getRecipes() {
     let recipes = [];
 
-    this.recipes.forEach(recipe => {
-      let hasSubImages = typeof recipe.fields.subImages === 'object';
-      let fields = recipe.fields;
-      let inlineRed = fields.redColorCode;
-      let inlineGreen = fields.greenColorCode;
-      let inlineBlue = fields.blueColorCode;
-      let inlineColor = `rgb(${fields.redColorCode}, ${fields.greenColorCode}, ${fields.blueColorCode})`;
-      let recipeName = fields.name;
-      let route = recipeName
-        .toLowerCase()
-        .trim()
-        .replace(/[\W_]+/g, ' ')
-        .replace(/ /g, '-');
-      let recipeImageURL = this.getAssetById(fields.mainImage.sys.id);
-      let recipeSliderURLS = hasSubImages
-        ? recipe.fields.subImages.map(recipeSubImage => this.getAssetById(recipeSubImage.sys.id))
-        : [];
-      let recipeVideoShareLink = fields.instagramShareLink;
-      let recipeIngredients = fields.ingredients;
-      let recipeInstructions = fields.instructions;
-      let preparationTime = fields.preparationTime || null;
-      let cookTime = fields.cookTime || null;
-      let servingSize = fields.servingSize || null;
-      let difficulty = fields.difficulty || null;
-      let allRecipeImagesURLS = [recipeImageURL].concat(recipeSliderURLS);
-      let metaInfo = [];
-
-      if (preparationTime != null) {
-        metaInfo.push({
-          label: 'Preparation Time',
-          value: `${preparationTime} min`,
-        });
-      }
-
-      if (cookTime != null) {
-        metaInfo.push({
-          label: 'Cook Time',
-          value: `${cookTime} min`,
-        });
-      }
-
-      if (servingSize != null) {
-        metaInfo.push({
-          label: 'Serving Size',
-          value: `${servingSize} friends`,
-        });
-      }
-
-      let getDifficultyValue = difficulty => {
-        let value = '';
-
-        for (let i = 0; i < difficulty; i++) {
-          value += '👩‍🍳';
-        }
-
-        return value;
-      };
-
-      if (difficulty != null) {
-        metaInfo.push({
-          label: 'Difficulty',
-          value: getDifficultyValue(difficulty),
-        });
-      }
-
-      recipes.push({
-        inlineRed,
-        inlineGreen,
-        inlineBlue,
-        inlineColor,
-        recipeName,
-        route,
-        recipeImageURL,
-        recipeSliderURLS,
-        allRecipeImagesURLS,
-        recipeVideoShareLink,
-        recipeIngredients,
-        recipeInstructions,
-        metaInfo,
-      });
+    this.recipes.forEach((recipe) => {
+      recipes.push(this.buildRecipeObject(recipe));
     });
 
     return recipes;

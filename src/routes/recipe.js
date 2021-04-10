@@ -51,7 +51,7 @@ let Recipe = ({ recipe }) => {
             {recipe.metaInfo.map((data, index) => (
               <div className="meta" key={index}>
                 <span className="key">{data.label}:</span>
-                <span className="value">{data.value}</span>
+                <span className="value">{data.displayValue}</span>
               </div>
             ))}
           </div>
