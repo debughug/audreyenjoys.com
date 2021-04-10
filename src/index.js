@@ -8,6 +8,7 @@ import axios from "axios";
 import ContentfulHelper from "./helpers/ContentfulHelper";
 
 import Nav from "./layouts/nav";
+import Footer from "./layouts/footer";
 import Home from "./routes/home";
 import Recipe from "./routes/recipe";
 
@@ -52,6 +53,7 @@ class App extends React.Component {
             ></Route>
           ))}
         </Switch>
+        <Footer></Footer>
       </Router>
     );
   }

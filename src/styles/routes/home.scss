@@ -1,6 +1,7 @@
 .route-home {
   background-color: map-get($colors, "color-white-2");
   padding: $spacing-base 0;
+  min-height: calc(100vh - 185px);
 
   .recipes {
     display: flex;
