@@ -1,9 +1,7 @@
 $spacing-base: 25px;
-$breakpoint-small: 768px;
+$transition: all 0.24s ease-out;
 
-$borderRadius: (
-  "card": 5px,
-);
+$breakpoint-small: 768px;
 
 $colors: (
   "color-white": #fff,

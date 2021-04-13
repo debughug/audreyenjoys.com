@@ -1,98 +1,98 @@
 .top-nav {
-    background-color: map-get($colors, "color-white");
+  background-color: map-get($colors, "color-white");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: ($spacing-base/ 2) 0;
+  border-bottom: 1px solid rgb(219, 219, 219);
+
+  .nav {
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding: ($spacing-base/ 2) 0;
-    border-bottom: 1px solid rgb(219, 219, 219);
-  
-    .nav {
+    align-items: center;
+    margin-left: $spacing-base * 2;
+
+    .logo {
       display: flex;
-      justify-content: center;
       align-items: center;
-      margin-left: $spacing-base * 2;
-  
-      .logo {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: ($spacing-base / 2);
-  
-        img {
-          height: 50px;
-          border-radius: 50px;
-        }
-      }
-  
-      h1 {
-        margin-bottom: 0;
-        font-size: 24px;
-        margin-right: $spacing-base;
-      }
-  
-      .links {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-  
-        a {
-          color: map-get($colors, "color-black");
-          border-bottom: 1px solid map-get($colors, "color-black");
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-        }
+      justify-content: center;
+      margin-right: ($spacing-base / 2);
+
+      img {
+        height: 50px;
+        border-radius: 50px;
       }
     }
-  
-    .social-links {
-      margin-left: auto;
-      margin-right: ($spacing-base * 2);
+
+    h1 {
+      margin-bottom: 0;
+      font-size: 24px;
+      margin-right: $spacing-base;
+    }
+
+    .links {
       display: flex;
       align-items: center;
       justify-content: center;
-  
+
       a {
         color: map-get($colors, "color-black");
+        border-bottom: 1px solid map-get($colors, "color-black");
         display: flex;
+        align-items: center;
+        justify-content: center;
         cursor: pointer;
-        font-weight: 100;
-        transition: all 0.24s ease-out;
-        font-size: 30px;
-        margin-right: $spacing-base;
-  
-        &:last-of-type {
-          margin-right: 0;
-        }
-  
-        &:hover {
-          color: rgb(195, 124, 139);
-        }
-      }
-    }
-  
-    @media all and (max-width: 991px) {
-      .nav {
-        margin-left: $spacing-base;
-      }
-  
-      .social-links {
-        margin-right: $spacing-base;
-      }
-    }
-  
-    @media all and (max-width: 556px) {
-      .nav {
-        h1 {
-          margin-right: 10px;
-        }
-      }
-  
-      .social-links {
-        a.email-link {
-          display: none;
-        }
       }
     }
   }
+
+  .social-links {
+    margin-left: auto;
+    margin-right: ($spacing-base * 2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    a {
+      color: map-get($colors, "color-black");
+      display: flex;
+      cursor: pointer;
+      font-weight: 100;
+      transition: $transition;
+      font-size: 30px;
+      margin-right: $spacing-base;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      &:hover {
+        color: rgb(195, 124, 139);
+      }
+    }
+  }
+
+  @media all and (max-width: 991px) {
+    .nav {
+      margin-left: $spacing-base;
+    }
+
+    .social-links {
+      margin-right: $spacing-base;
+    }
+  }
+
+  @media all and (max-width: 556px) {
+    .nav {
+      h1 {
+        margin-right: 10px;
+      }
+    }
+
+    .social-links {
+      a.email-link {
+        display: none;
+      }
+    }
+  }
+}

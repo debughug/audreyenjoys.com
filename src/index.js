@@ -40,19 +40,19 @@ class App extends React.Component {
     return (
       <Router>
         <Nav></Nav>
-        <Switch>
-          <Route path="/" exact component={Home}>
-            <Home recipes={this.state.recipes} />
-          </Route>
-          {this.state.recipes.map((recipe, index) => (
-            <Route
-              key={index}
-              path={`/recipe/${recipe.route}`}
-              exact
-              render={() => <Recipe recipe={recipe}></Recipe>}
-            ></Route>
-          ))}
-        </Switch>
+          <Switch>
+            <Route path="/" exact component={Home}>
+              <Home recipes={this.state.recipes} />
+            </Route>
+            {this.state.recipes.map((recipe, index) => (
+              <Route
+                key={index}
+                path={`/recipe/${recipe.route}`}
+                exact
+                render={() => <Recipe recipe={recipe}></Recipe>}
+              ></Route>
+            ))}
+          </Switch>
         <Footer></Footer>
       </Router>
     );
