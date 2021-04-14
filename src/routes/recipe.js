@@ -10,9 +10,9 @@ let InstagramLink = ({ instagramVideoLink }) => {
 
   if (instagramVideoLink) {
     element = (
-      <a href={instagramVideoLink}>
+      <a href={instagramVideoLink} target="_blank">
         <i className="fab fa-instagram"></i>
-        <span className="instagram-label">Watch on Instagram</span>
+        <span className="instagram-label">Watch on Instagram</span><i class="fas fa-external-link-alt"></i>
       </a>
     );
   }
