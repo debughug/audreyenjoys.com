@@ -40,7 +40,6 @@ let Recipe = ({ recipe }) => {
             </div>
           </div>
           <AutoplaySlider
-            className={`food-asset carousel`}
             infinite={recipe.allRecipeImagesURLS.length > 0}
             bullets={false}
             play={true}
