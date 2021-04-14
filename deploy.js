@@ -6,7 +6,7 @@ const axios = require('axios');
 const UpdateS3Recipes = async () => {
   await axios
     .get(
-      `https://cdn.contentful.com/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/master/entries?access_token=${process.env.CONTENTFUL_DELIVERY_KEY}`
+      `https://cdn.contentful.com/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/master/entries?content_type=recipe&access_token=${process.env.CONTENTFUL_DELIVERY_KEY}`
     )
     .then(function (response) {
       upload({
