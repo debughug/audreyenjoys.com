@@ -48,6 +48,7 @@ export default class ContentfulHelper {
     let cookTime = recipe.fields.cookTime || null;
     let servingSize = recipe.fields.servingSize || null;
     let difficulty = recipe.fields.difficulty || null;
+    let notes = recipe.fields.notes || null;
     let metaInfo = [
       {
         label: "Preparation Time",
@@ -82,6 +83,7 @@ export default class ContentfulHelper {
       recipeVideoShareLink,
       recipeIngredients,
       recipeInstructions,
+      notes
     };
   }
 

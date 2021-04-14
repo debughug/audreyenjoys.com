@@ -110,6 +110,12 @@
         width: 50%;
       }
     }
+
+    .notes {
+      max-width: 560px;
+      margin: 0 auto;
+      width: 100%;
+    }
   }
 
   @media all and (max-width: 768px) {

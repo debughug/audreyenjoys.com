@@ -1,6 +1,7 @@
-import AwesomeSlider from 'react-awesome-slider';
-import withAutoplay from 'react-awesome-slider/dist/autoplay';
-import React from 'react';
+import AwesomeSlider from "react-awesome-slider";
+import withAutoplay from "react-awesome-slider/dist/autoplay";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import React from "react";
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
@@ -23,14 +24,19 @@ let Recipe = ({ recipe }) => {
   window.scrollTo(0, 0);
 
   return (
-    <div className={`route-recipe`} style={{ backgroundColor: recipe.inlineColor }}>
+    <div
+      className={`route-recipe`}
+      style={{ backgroundColor: recipe.inlineColor }}
+    >
       <div className="content">
         <div className="intro">
           <div className="food-intro">
             <h6>AudreyEnjoys</h6>
             <h1>{recipe.recipeName}</h1>
             <div className="social-links">
-              <InstagramLink instagramVideoLink={recipe.recipeVideoShareLink}></InstagramLink>
+              <InstagramLink
+                instagramVideoLink={recipe.recipeVideoShareLink}
+              ></InstagramLink>
             </div>
           </div>
           <AutoplaySlider
@@ -74,6 +80,12 @@ let Recipe = ({ recipe }) => {
             </ol>
           </div>
         </div>
+        {recipe.notes && (
+          <div className="notes">
+            <h4>Notes</h4>
+            {documentToReactComponents(recipe.notes)}
+          </div>
+        )}
       </div>
     </div>
   );
