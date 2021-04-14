@@ -29,10 +29,10 @@ export default class ContentfulHelper {
       return dDisplay + hDisplay + mDisplay + sDisplay;
     };
 
+    let createdAt = recipe.sys.createdAt;
     let inlineColor = `rgb(${recipe.fields.redColorCode}, ${recipe.fields.greenColorCode}, ${recipe.fields.blueColorCode})`;
     let recipeName = recipe.fields.name.trim();
     let route = recipeName.toLowerCase().replace(/[\W_]+/g, "-");
-
     let recipeImageURL = this.getAssetById(recipe.fields.mainImage.sys.id);
     let recipeSliderURLS =
       typeof recipe.fields.subImages === "object"
@@ -73,6 +73,7 @@ export default class ContentfulHelper {
 
     return {
       route,
+      createdAt,
       recipeName,
       inlineColor,
       metaInfo,
@@ -115,6 +116,10 @@ export default class ContentfulHelper {
     this.recipes.forEach((recipe) => {
       recipes.push(this.buildRecipeObject(recipe));
     });
+
+    recipes = recipes.sort(
+      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+    );
 
     return recipes;
   }
