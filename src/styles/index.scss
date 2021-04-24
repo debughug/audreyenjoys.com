@@ -13,5 +13,5 @@
 @import "./routes/recipe.scss";
 
 body {
-  background-color: map-get($colors, "color-white-2");
+  background-color: $white-2;
 }

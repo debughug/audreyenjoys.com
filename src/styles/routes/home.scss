@@ -1,5 +1,5 @@
 .route-home {
-  background-color: map-get($colors, "color-white-2");
+  background-color: $white-2;
   padding: $spacing-base 0;
   min-height: calc(100vh - 185px);
   max-width: 1440px;
@@ -13,7 +13,7 @@
     padding: 0 25px;
 
     .recipe {
-      color: map-get($colors, "color-white");
+      color: $white-1;
       cursor: pointer;
       text-align: center;
       margin: 0 ($spacing-base) ($spacing-base * 2);
@@ -45,7 +45,7 @@
 
         .food-name {
           margin: 0;
-          background-color: map-get($colors, "color-white-1");
+          background-color: $white-1;
         }
       }
     }

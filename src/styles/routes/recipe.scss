@@ -10,7 +10,7 @@
   .content {
     max-width: 991px;
     width: 100%;
-    color: map-get($colors, "color-white");
+    color: $white-1;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -35,10 +35,10 @@
         background-position-x: center;
         background-position-y: center;
         background-size: cover;
-        background-color: map-get($colors, "color-white");
+        background-color: $white-1;
         max-width: 768px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        border: 8px solid map-get($colors, "color-white");
+        border: 8px solid $white-1;
         width: 100%;
 
         .awssld__box {
