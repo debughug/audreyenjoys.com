@@ -1,6 +1,7 @@
 import AwesomeSlider from "react-awesome-slider";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { Popover } from "react-tiny-popover";
 import React from "react";
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
@@ -39,9 +40,12 @@ class Recipe extends React.Component {
 
     this.state = {
       recipe: this.props.recipe,
+      isPrintPopover: false,
       checkedIngredients,
       checkedInstructions,
     };
+
+    this.setIsPrintPopover = this.setIsPrintPopover.bind(this);
 
     this.toggleIngredientsCheckClass = this.toggleIngredientsCheckClass.bind(
       this
@@ -50,6 +54,10 @@ class Recipe extends React.Component {
     this.toggleInstructionsCheckClass = this.toggleInstructionsCheckClass.bind(
       this
     );
+  }
+
+  setIsPrintPopover(isPrintPopover) {
+    this.setState({ isPrintPopover });
   }
 
   toggleIngredientsCheckClass(index) {
@@ -65,8 +73,6 @@ class Recipe extends React.Component {
   }
 
   render() {
-    window.scrollTo(0, 0);
-
     let recipe = this.state.recipe;
 
     return (
@@ -99,7 +105,6 @@ class Recipe extends React.Component {
           {recipe.metaInfo.length && (
             <div className="metas">
               <h4>Overview</h4>
-
               {recipe.metaInfo.map((data, index) => (
                 <div className="meta" key={index}>
                   <span className="key">{data.label}:</span>
@@ -108,7 +113,7 @@ class Recipe extends React.Component {
               ))}
 
               <button className="print-page" onClick={() => window.print()}>
-                <i className="fas fa-print"></i>
+                Print! <i className="fas fa-print"></i>
               </button>
             </div>
           )}
