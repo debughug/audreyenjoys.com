@@ -73,6 +73,7 @@ class Recipe extends React.Component {
         style={{ backgroundColor: recipe.inlineColor }}
       >
         <div className="content">
+          <button className="print-page" onClick={() => window.print()}>Print this page</button>
           <div className="intro">
             <div className="food-intro">
               <h6>AudreyEnjoys</h6>

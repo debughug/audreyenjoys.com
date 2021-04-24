@@ -1,4 +1,4 @@
-@import './vendors/reset.scss';
+@import "./vendors/reset.scss";
 @import "./vendors/react-awesome-slider.scss";
 
 @import "./base/variables.scss";
@@ -15,5 +15,3 @@
 body {
   background-color: map-get($colors, "color-white-2");
 }
-
-

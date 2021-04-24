@@ -90,9 +90,6 @@
           margin-right: ($spacing-base / 3);
           font-weight: 700;
         }
-
-        .value {
-        }
       }
     }
 
@@ -154,6 +151,19 @@
           width: 100%;
         }
       }
+    }
+  }
+
+  @media print {
+    font-size: 18px !important;
+
+    .print-page,
+    .social-links {
+      display: none !important;
+    }
+
+    .awssld {
+      max-width: 300px !important;
     }
   }
 }
