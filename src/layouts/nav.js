@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 
 let Home = ({ recipes }) => {
   return (
@@ -8,8 +8,8 @@ let Home = ({ recipes }) => {
         <div className="logo">
           <img
             src="https://audreyenjoys.s3-us-west-2.amazonaws.com/logo-icon.jpg"
-            alt="AudreyEnjoys Profile Picture"
-          ></img>
+            alt="AudreyEnjoys Profile"
+          />
         </div>
         <h1>AudreyEnjoys</h1>
         <div className="links">

@@ -10,7 +10,7 @@ let InstagramLink = ({ instagramVideoLink }) => {
 
   if (instagramVideoLink) {
     element = (
-      <a href={instagramVideoLink} target="_blank">
+      <a href={instagramVideoLink} target="_blank" rel="noopener noreferrer">
         <i className="fab fa-instagram"></i>
         <span className="instagram-label">Watch on Instagram</span>
         <i className="fas fa-external-link-alt"></i>
@@ -65,6 +65,8 @@ class Recipe extends React.Component {
   }
 
   render() {
+    window.scrollTo(0, 0);
+
     let recipe = this.state.recipe;
 
     return (
@@ -73,7 +75,6 @@ class Recipe extends React.Component {
         style={{ backgroundColor: recipe.inlineColor }}
       >
         <div className="content">
-          <button className="print-page" onClick={() => window.print()}>Print this page</button>
           <div className="intro">
             <div className="food-intro">
               <h6>AudreyEnjoys</h6>
@@ -98,12 +99,17 @@ class Recipe extends React.Component {
           {recipe.metaInfo.length && (
             <div className="metas">
               <h4>Overview</h4>
+
               {recipe.metaInfo.map((data, index) => (
                 <div className="meta" key={index}>
                   <span className="key">{data.label}:</span>
                   <span className="value">{data.displayValue}</span>
                 </div>
               ))}
+
+              <button className="print-page" onClick={() => window.print()}>
+                <i className="fas fa-print"></i>
+              </button>
             </div>
           )}
           <div className="body">

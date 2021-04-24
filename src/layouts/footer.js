@@ -1,6 +1,6 @@
 import React from "react";
 
-let Home = ({}) => {
+let Home = () => {
   return <div className="footer">© Copyright 2021 - AudreyEnjoys</div>;
 };
 

@@ -91,6 +91,12 @@
           font-weight: 700;
         }
       }
+
+      .print-page {
+        background-color: transparent;
+        color: $white-1;
+        cursor: pointer;
+      }
     }
 
     .body {
