@@ -1,7 +1,6 @@
 import AwesomeSlider from "react-awesome-slider";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { Popover } from "react-tiny-popover";
 import React from "react";
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
