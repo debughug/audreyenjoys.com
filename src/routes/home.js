@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
 
 let Home = ({ recipes }) => {
   return (
-    <div className="route-home">
+    <div className="route route-home">
       <div className="recipes">
         {recipes.map((recipe, index) => (
           <Link
