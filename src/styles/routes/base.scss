@@ -1,5 +1,5 @@
 .route {
   margin: 0 auto;
-  max-width: 1440px;
+  max-width: $max-width;
   padding: ($spacing-base * 2) $spacing-base;
 }
