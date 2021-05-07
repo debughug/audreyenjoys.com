@@ -112,7 +112,7 @@ class Recipe extends React.Component {
               ))}
 
               <button className="print-page" onClick={() => window.print()}>
-                Print! <i className="fas fa-print"></i>
+                Print <i className="fas fa-print"></i>
               </button>
             </div>
           )}
