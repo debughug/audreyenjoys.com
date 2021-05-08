@@ -35,6 +35,50 @@ let WistiaLink = ({ wistiaID }) => {
   return element;
 };
 
+let RecipeMetaInfo = ({ metaInfo }) => {
+  let element = null;
+
+  if (metaInfo) {
+    element = (
+      <div className="metas">
+        <h2>Overview</h2>
+        {metaInfo.map((data, index) => {
+          let element = null;
+          let isValidMetaInfo = typeof data == "object" && data.isValid;
+
+          if (isValidMetaInfo) {
+            element = (
+              <div className="meta" key={index}>
+                <span className="key">{data.label}:</span>
+                <span className="value">{data.displayValue}</span>
+              </div>
+            );
+          }
+
+          return element;
+        })}
+      </div>
+    );
+  }
+
+  return element;
+};
+
+let RecipeNotes = ({ notesRichText }) => {
+  let element = null;
+
+  if (notesRichText) {
+    element = (
+      <div className="notes">
+        <h4>Notes</h4>
+        {documentToReactComponents(notesRichText)}
+      </div>
+    );
+  }
+
+  return element;
+};
+
 class Recipe extends React.Component {
   constructor(props) {
     super(props);
@@ -109,29 +153,10 @@ class Recipe extends React.Component {
               ))}
             </AutoplaySlider>
           </div>
-          {recipe.metaInfo.length && (
-            <div className="metas">
-              <h2>Overview</h2>
-              {recipe.metaInfo.map((data, index) => {
-                let element = null;
-                let isValidMetaInfo = typeof data == "object" && data.isValid;
-
-                if (isValidMetaInfo) {
-                  element = (
-                    <div className="meta" key={index}>
-                      <span className="key">{data.label}:</span>
-                      <span className="value">{data.displayValue}</span>
-                    </div>
-                  );
-                }
-
-                return element;
-              })}
-            </div>
-          )}
+          <RecipeMetaInfo metaInfo={recipe.metaInfo}></RecipeMetaInfo>
           <div className="body">
             <div className="ingredients">
-              <h4>Ingredients</h4>
+              <h3>Ingredients</h3>
               <ul className="ingredients-list cursor">
                 {recipe.recipeIngredients.map((entry, index) => (
                   <li
@@ -149,7 +174,7 @@ class Recipe extends React.Component {
               </ul>
             </div>
             <div className="instructions">
-              <h4>Instructions</h4>
+              <h3>Instructions</h3>
               <ol className="instructions-list cursor">
                 {recipe.recipeInstructions.map((entry, index) => (
                   <li
@@ -167,12 +192,7 @@ class Recipe extends React.Component {
               </ol>
             </div>
           </div>
-          {recipe.notes && (
-            <div className="notes">
-              <h4>Notes</h4>
-              {documentToReactComponents(recipe.notes)}
-            </div>
-          )}
+          <RecipeNotes notesRichText={recipe.notes}></RecipeNotes>
         </div>
       </div>
     );
