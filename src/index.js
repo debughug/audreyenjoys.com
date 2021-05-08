@@ -60,35 +60,41 @@ class App extends React.Component {
   }
 
   render() {
-    /* Add loading state my dude */
     let isLoading = this.state.isLoading;
-    if (isLoading) {
-      return <div></div>;
+    let View = <div>Loading</div>;
+
+    if (!isLoading) {
+      let translationCode = this.state.translationCode;
+      let translatedRecipes = this.state.translatedRecipes[translationCode];
+
+      View = (
+        <Router>
+          <Nav></Nav>
+          <Switch>
+            <Route path="/" exact component={Home}>
+              <Home recipes={translatedRecipes} />
+            </Route>
+            {translatedRecipes.map((recipe, index) => (
+              <Route
+                key={index}
+                path={`/recipe/${recipe.route}`}
+                exact
+                render={() => (
+                  <Recipe
+                    recipe={recipe}
+                    translationCode={translationCode}
+                    setTranslationCode={this.setTranslationCode}
+                  ></Recipe>
+                )}
+              ></Route>
+            ))}
+          </Switch>
+          <Footer></Footer>
+        </Router>
+      );
     }
-    /* Add loading state my dude */
 
-    let translationCode = this.state.translationCode;
-    let translatedRecipes = this.state.translatedRecipes[translationCode];
-
-    return (
-      <Router>
-        <Nav setTranslationCode={this.setTranslationCode}></Nav>
-        <Switch>
-          <Route path="/" exact component={Home}>
-            <Home recipes={translatedRecipes} />
-          </Route>
-          {translatedRecipes.map((recipe, index) => (
-            <Route
-              key={index}
-              path={`/recipe/${recipe.route}`}
-              exact
-              render={() => <Recipe recipe={recipe}></Recipe>}
-            ></Route>
-          ))}
-        </Switch>
-        <Footer></Footer>
-      </Router>
-    );
+    return View;
   }
 }
 

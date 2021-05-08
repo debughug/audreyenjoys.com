@@ -21,11 +21,27 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      margin-bottom: $spacing-base * 2;
+      margin-bottom: $spacing-base;
       width: 100%;
 
       .food-intro {
         text-align: center;
+      }
+
+      .language-picker {
+        margin-bottom: $spacing-base;
+
+        button {
+          background-color: transparent;
+          color: inherit;
+          border-bottom: 1px solid $white-1;
+          cursor: pointer;
+          font-weight: 600;
+
+          &.hidden {
+            display: none;
+          }
+        }
       }
 
       .awssld {
@@ -39,6 +55,7 @@
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         border: 8px solid $white-1;
         width: 100%;
+        margin-bottom: $spacing-base;
 
         .awssld__box {
           .awssld__content {
@@ -50,7 +67,7 @@
       }
 
       .social-links {
-        margin-bottom: $spacing-base;
+        margin-bottom: $spacing-base / 2;
 
         a {
           display: flex;
@@ -61,7 +78,6 @@
 
           .fa-instagram {
             font-size: 34px;
-            margin-bottom: ($spacing-base / 3);
           }
         }
       }

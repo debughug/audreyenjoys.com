@@ -5,10 +5,6 @@ class Home extends React.Component {
   render() {
     return (
       <div className="top-nav">
-        <button onClick={() => this.props.setTranslationCode("es")}>
-          Change to spanish
-        </button>
-
         <div className="container">
           <div className="nav">
             <div className="logo">

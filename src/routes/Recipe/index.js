@@ -12,17 +12,17 @@ class Recipe extends React.Component {
   constructor(props) {
     super(props);
 
-    let checkedIngredients = [];
+    let checkedIngredients = [].fill(
+      false,
+      0,
+      this.props.recipe.recipeIngredients.length
+    );
 
-    for (let x = 0; x < this.props.recipe.recipeInstructions.length; x++) {
-      checkedIngredients.push(false);
-    }
-
-    let checkedInstructions = [];
-
-    for (let x = 0; x < this.props.recipe.recipeInstructions.length; x++) {
-      checkedInstructions.push(false);
-    }
+    let checkedInstructions = [].fill(
+      false,
+      0,
+      this.props.recipe.recipeInstructions.length
+    );
 
     this.state = {
       recipe: this.props.recipe,
@@ -30,29 +30,26 @@ class Recipe extends React.Component {
       checkedInstructions,
     };
 
-    this.toggleIngredientsCheckClass = this.toggleIngredientsCheckClass.bind(
-      this
-    );
+    this.toggleIngredients = this.toggleIngredients.bind(this);
 
-    this.toggleInstructionsCheckClass = this.toggleInstructionsCheckClass.bind(
-      this
-    );
+    this.toggleInstructions = this.toggleInstructions.bind(this);
   }
 
-  toggleIngredientsCheckClass(index) {
+  toggleIngredients(index) {
     let checkedIngredients = this.state.checkedIngredients;
     checkedIngredients[index] = !checkedIngredients[index];
     this.setState({ checkedIngredients });
   }
 
-  toggleInstructionsCheckClass(index) {
+  toggleInstructions(index) {
     let checkedInstructions = this.state.checkedInstructions;
     checkedInstructions[index] = !checkedInstructions[index];
     this.setState({ checkedInstructions });
   }
 
   render() {
-    let recipe = this.state.recipe;
+    let recipe = this.props.recipe;
+    let translationCode = this.props.translationCode;
 
     return (
       <div
@@ -64,11 +61,20 @@ class Recipe extends React.Component {
             <div className="food-intro">
               <h6>AudreyEnjoys</h6>
               <h1>{recipe.recipeName}</h1>
-              <div className="social-links">
-                <InstagramLink
-                  instagramVideoLink={recipe.recipeVideoShareLink}
-                ></InstagramLink>
-              </div>
+            </div>
+            <div className="language-picker">
+              <button
+                className={translationCode == "es" ? "visible" : "hidden"}
+                onClick={() => this.props.setTranslationCode("en")}
+              >
+                Read in English
+              </button>
+              <button
+                className={translationCode == "en" ? "visible" : "hidden"}
+                onClick={() => this.props.setTranslationCode("es")}
+              >
+                Leer en Español
+              </button>
             </div>
             <AutoplaySlider
               infinite={recipe.allRecipeImagesURLS.length > 0}
@@ -80,6 +86,11 @@ class Recipe extends React.Component {
                 <div key={index} data-src={url} />
               ))}
             </AutoplaySlider>
+            <div className="social-links">
+              <InstagramLink
+                instagramVideoLink={recipe.recipeVideoShareLink}
+              ></InstagramLink>
+            </div>
           </div>
           <RecipeMetaInfo metaInfo={recipe.metaInfo}></RecipeMetaInfo>
           <div className="body">
