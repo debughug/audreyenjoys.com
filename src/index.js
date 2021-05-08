@@ -9,6 +9,7 @@ import Footer from "./layouts/Footer";
 import Home from "./routes/Home";
 import Recipe from "./routes/Recipe";
 import ContentfulHelper from "./helpers/ContentfulHelper";
+import Endpoints from "./helpers/Endpoints";
 
 class App extends React.Component {
   constructor(props) {
@@ -18,53 +19,58 @@ class App extends React.Component {
       translationCode: "en",
       translatedRecipes: {},
     };
+
+    this.setTranslationCode = this.setTranslationCode.bind(this);
+  }
+
+  setTranslationCode(translationCode = "") {
+    if (translationCode) {
+      this.setState({
+        translationCode,
+      });
+    }
   }
 
   componentDidMount() {
     let that = this;
-    let englishCall = axios.get(
-      "https://audreyenjoys.s3-us-west-2.amazonaws.com/recipes.json"
-    );
 
-    let spanishCall = axios.get(
-      "https://audreyenjoys.s3-us-west-2.amazonaws.com/recipes-es.json"
-    );
+    axios
+      .all([axios.get(Endpoints.recipes.en), axios.get(Endpoints.recipes.es)])
+      .then(
+        axios.spread(function (enRes, esRes) {
+          let Helper = new ContentfulHelper();
+          let translatedRecipes = {};
 
-    axios.all([englishCall, spanishCall]).then(
-      axios.spread(function (englishRes, spanishRes) {
-        let ContentfulHelperEnglish = new ContentfulHelper();
-        let ContentfulHelperSpanish = new ContentfulHelper();
+          Helper.setAssets(enRes.data.includes.Asset);
+          Helper.setRecipes(enRes.data.items);
+          translatedRecipes.en = Helper.getRecipes();
 
-        ContentfulHelperEnglish.setAssets(englishRes.data.includes.Asset);
-        ContentfulHelperEnglish.setRecipes(englishRes.data.items);
-        ContentfulHelperSpanish.setAssets(spanishRes.data.includes.Asset);
-        ContentfulHelperSpanish.setRecipes(spanishRes.data.items);
+          Helper.setAssets(esRes.data.includes.Asset);
+          Helper.setRecipes(esRes.data.items);
+          translatedRecipes.es = Helper.getRecipes();
 
-        that.setState({
-          isLoading: false,
-          translatedRecipes: {
-            en: ContentfulHelperEnglish.getRecipes(),
-            es: ContentfulHelperSpanish.getRecipes(),
-          },
-        });
-      })
-    );
+          that.setState({
+            isLoading: false,
+            translatedRecipes,
+          });
+        })
+      );
   }
 
   render() {
-    // Add loading state my dude
+    /* Add loading state my dude */
     let isLoading = this.state.isLoading;
     if (isLoading) {
       return <div></div>;
     }
-    // Add loading state my dude
+    /* Add loading state my dude */
 
     let translationCode = this.state.translationCode;
     let translatedRecipes = this.state.translatedRecipes[translationCode];
 
     return (
       <Router>
-        <Nav></Nav>
+        <Nav setTranslationCode={this.setTranslationCode}></Nav>
         <Switch>
           <Route path="/" exact component={Home}>
             <Home recipes={translatedRecipes} />

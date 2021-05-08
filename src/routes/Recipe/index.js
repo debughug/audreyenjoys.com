@@ -1,68 +1,11 @@
+import React from "react";
 import AwesomeSlider from "react-awesome-slider";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import React from "react";
+import InstagramLink from "./InstagramLink";
+import RecipeMetaInfo from "./RecipeMetaInfo";
+import RecipeNotes from "./RecipeNotes";
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
-
-let InstagramLink = ({ instagramVideoLink }) => {
-  let element = null;
-
-  if (instagramVideoLink) {
-    element = (
-      <a href={instagramVideoLink} target="_blank" rel="noopener noreferrer">
-        <i className="fab fa-instagram"></i>
-        <div>Watch on Instagram</div>
-      </a>
-    );
-  }
-
-  return element;
-};
-
-let RecipeMetaInfo = ({ metaInfo }) => {
-  let element = null;
-
-  if (metaInfo) {
-    element = (
-      <div className="metas">
-        <h2>Overview</h2>
-        {metaInfo.map((data, index) => {
-          let element = null;
-          let isValidMetaInfo = typeof data == "object" && data.isValid;
-
-          if (isValidMetaInfo) {
-            element = (
-              <div className="meta" key={index}>
-                <span className="key">{data.label}:</span>
-                <span className="value">{data.displayValue}</span>
-              </div>
-            );
-          }
-
-          return element;
-        })}
-      </div>
-    );
-  }
-
-  return element;
-};
-
-let RecipeNotes = ({ notesRichText }) => {
-  let element = null;
-
-  if (notesRichText) {
-    element = (
-      <div className="notes">
-        <h4>Notes</h4>
-        {documentToReactComponents(notesRichText)}
-      </div>
-    );
-  }
-
-  return element;
-};
 
 class Recipe extends React.Component {
   constructor(props) {
