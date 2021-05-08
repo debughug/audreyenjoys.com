@@ -14,35 +14,62 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      recipes: [],
+      isLoading: true,
+      translationCode: "en",
+      translatedRecipes: {},
     };
-
-    this.ContentfulHelper = new ContentfulHelper();
   }
 
   componentDidMount() {
     let that = this;
+    let englishCall = axios.get(
+      "https://audreyenjoys.s3-us-west-2.amazonaws.com/recipes.json"
+    );
 
-    axios
-      .get(`https://audreyenjoys.s3-us-west-2.amazonaws.com/recipes.json`)
-      .then(function (response) {
-        that.ContentfulHelper.setAssets(response.data.includes.Asset);
-        that.ContentfulHelper.setRecipes(response.data.items);
+    let spanishCall = axios.get(
+      "https://audreyenjoys.s3-us-west-2.amazonaws.com/recipes-es.json"
+    );
+
+    axios.all([englishCall, spanishCall]).then(
+      axios.spread(function (englishRes, spanishRes) {
+        let ContentfulHelperEnglish = new ContentfulHelper();
+        let ContentfulHelperSpanish = new ContentfulHelper();
+
+        ContentfulHelperEnglish.setAssets(englishRes.data.includes.Asset);
+        ContentfulHelperEnglish.setRecipes(englishRes.data.items);
+        ContentfulHelperSpanish.setAssets(spanishRes.data.includes.Asset);
+        ContentfulHelperSpanish.setRecipes(spanishRes.data.items);
+
         that.setState({
-          recipes: that.ContentfulHelper.getRecipes(),
+          isLoading: false,
+          translatedRecipes: {
+            en: ContentfulHelperEnglish.getRecipes(),
+            es: ContentfulHelperSpanish.getRecipes(),
+          },
         });
-      });
+      })
+    );
   }
 
   render() {
+    // Add loading state my dude
+    let isLoading = this.state.isLoading;
+    if (isLoading) {
+      return <div></div>;
+    }
+    // Add loading state my dude
+
+    let translationCode = this.state.translationCode;
+    let translatedRecipes = this.state.translatedRecipes[translationCode];
+
     return (
       <Router>
         <Nav></Nav>
         <Switch>
           <Route path="/" exact component={Home}>
-            <Home recipes={this.state.recipes} />
+            <Home recipes={translatedRecipes} />
           </Route>
-          {this.state.recipes.map((recipe, index) => (
+          {translatedRecipes.map((recipe, index) => (
             <Route
               key={index}
               path={`/recipe/${recipe.route}`}
