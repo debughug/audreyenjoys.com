@@ -19,22 +19,6 @@ let InstagramLink = ({ instagramVideoLink }) => {
   return element;
 };
 
-let WistiaLink = ({ wistiaID }) => {
-  let element = null;
-
-  if (wistiaID) {
-    element = (
-      <span
-        class={`wistia_embed wistia_async_${wistiaID} popover=true popoverContent=link`}
-      >
-        <a href="#">Watch Now</a>
-      </span>
-    );
-  }
-
-  return element;
-};
-
 let RecipeMetaInfo = ({ metaInfo }) => {
   let element = null;
 
@@ -139,7 +123,6 @@ class Recipe extends React.Component {
                 <InstagramLink
                   instagramVideoLink={recipe.recipeVideoShareLink}
                 ></InstagramLink>
-                <WistiaLink wistiaID={"g2jf4rudy0"}></WistiaLink>
               </div>
             </div>
             <AutoplaySlider
