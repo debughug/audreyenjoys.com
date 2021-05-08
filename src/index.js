@@ -4,13 +4,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import axios from "axios";
-
-import ContentfulHelper from "./helpers/ContentfulHelper";
-
-import Nav from "./layouts/nav";
-import Footer from "./layouts/footer";
+import Nav from "./layouts/Nav";
+import Footer from "./layouts/Footer";
 import Home from "./routes/Home";
 import Recipe from "./routes/Recipe";
+import ContentfulHelper from "./helpers/ContentfulHelper";
 
 class App extends React.Component {
   constructor(props) {
