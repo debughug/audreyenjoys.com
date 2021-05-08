@@ -56,11 +56,12 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          color: white;
+          color: $white-1;
+          flex-direction: column;
 
           .fa-instagram {
             font-size: 34px;
-            margin-right: 5px;
+            margin-bottom: ($spacing-base / 3);
           }
         }
       }
