@@ -30,6 +30,9 @@
       }
 
       .links {
+        position: relative;
+        top: 1px;
+
         a {
           display: flex;
           align-items: center;
@@ -59,22 +62,6 @@
 
         &:hover {
           color: rgb(195, 124, 139);
-        }
-      }
-    }
-  }
-
-  @media all and (max-width: 556px) {
-    .container {
-      .nav {
-        h1 {
-          margin-right: 10px;
-        }
-      }
-
-      .social-links {
-        a.email-link {
-          display: none;
         }
       }
     }

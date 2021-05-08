@@ -23,15 +23,15 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    let ReactThis = this;
+    let that = this;
 
     axios
       .get(`https://audreyenjoys.s3-us-west-2.amazonaws.com/recipes.json`)
       .then(function (response) {
-        ReactThis.ContentfulHelper.setAssets(response.data.includes.Asset);
-        ReactThis.ContentfulHelper.setRecipes(response.data.items);
-        ReactThis.setState({
-          recipes: ReactThis.ContentfulHelper.getRecipes(),
+        that.ContentfulHelper.setAssets(response.data.includes.Asset);
+        that.ContentfulHelper.setRecipes(response.data.items);
+        that.setState({
+          recipes: that.ContentfulHelper.getRecipes(),
         });
       });
   }
@@ -40,19 +40,19 @@ class App extends React.Component {
     return (
       <Router>
         <Nav></Nav>
-          <Switch>
-            <Route path="/" exact component={Home}>
-              <Home recipes={this.state.recipes} />
-            </Route>
-            {this.state.recipes.map((recipe, index) => (
-              <Route
-                key={index}
-                path={`/recipe/${recipe.route}`}
-                exact
-                render={() => <Recipe recipe={recipe}></Recipe>}
-              ></Route>
-            ))}
-          </Switch>
+        <Switch>
+          <Route path="/" exact component={Home}>
+            <Home recipes={this.state.recipes} />
+          </Route>
+          {this.state.recipes.map((recipe, index) => (
+            <Route
+              key={index}
+              path={`/recipe/${recipe.route}`}
+              exact
+              render={() => <Recipe recipe={recipe}></Recipe>}
+            ></Route>
+          ))}
+        </Switch>
         <Footer></Footer>
       </Router>
     );

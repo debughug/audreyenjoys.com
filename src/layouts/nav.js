@@ -18,9 +18,6 @@ let Home = () => {
           </div>
         </div>
         <div className="social-links">
-          <a href="mailto:me@audreyenjoys.com" className="email-link">
-            <i className="far fa-envelope"></i>
-          </a>
           <a href="https://www.instagram.com/audreyenjoys/">
             <i className="fab fa-instagram"></i>
           </a>
