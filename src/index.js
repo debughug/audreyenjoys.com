@@ -4,10 +4,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import axios from "axios";
+
 import Nav from "./layouts/Nav";
 import Footer from "./layouts/Footer";
 import Home from "./routes/Home";
 import Recipe from "./routes/Recipe";
+
 import ContentfulHelper from "./helpers/ContentfulHelper";
 import Endpoints from "./helpers/Endpoints";
 
@@ -32,7 +34,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    let that = this;
+    let _this = this;
 
     axios
       .all([axios.get(Endpoints.recipes.en), axios.get(Endpoints.recipes.es)])
@@ -49,7 +51,7 @@ class App extends React.Component {
           Helper.setRecipes(esRes.data.items);
           translatedRecipes.es = Helper.getRecipes();
 
-          that.setState({
+          _this.setState({
             isLoading: false,
             translatedRecipes,
           });
