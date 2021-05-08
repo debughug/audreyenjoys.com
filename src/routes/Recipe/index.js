@@ -12,8 +12,6 @@ let InstagramLink = ({ instagramVideoLink }) => {
     element = (
       <a href={instagramVideoLink} target="_blank" rel="noopener noreferrer">
         <i className="fab fa-instagram"></i>
-        <span className="instagram-label">Watch on Instagram</span>
-        <i className="fas fa-external-link-alt"></i>
       </a>
     );
   }
@@ -55,12 +53,9 @@ class Recipe extends React.Component {
 
     this.state = {
       recipe: this.props.recipe,
-      isPrintPopover: false,
       checkedIngredients,
       checkedInstructions,
     };
-
-    this.setIsPrintPopover = this.setIsPrintPopover.bind(this);
 
     this.toggleIngredientsCheckClass = this.toggleIngredientsCheckClass.bind(
       this
@@ -69,10 +64,6 @@ class Recipe extends React.Component {
     this.toggleInstructionsCheckClass = this.toggleInstructionsCheckClass.bind(
       this
     );
-  }
-
-  setIsPrintPopover(isPrintPopover) {
-    this.setState({ isPrintPopover });
   }
 
   toggleIngredientsCheckClass(index) {
@@ -92,7 +83,7 @@ class Recipe extends React.Component {
 
     return (
       <div
-        className={`route-recipe`}
+        className="route route-recipe"
         style={{ backgroundColor: recipe.inlineColor }}
       >
         <div className="content">
@@ -120,17 +111,13 @@ class Recipe extends React.Component {
           </div>
           {recipe.metaInfo.length && (
             <div className="metas">
-              <h4>Overview</h4>
+              <h2>Overview</h2>
               {recipe.metaInfo.map((data, index) => (
                 <div className="meta" key={index}>
                   <span className="key">{data.label}:</span>
                   <span className="value">{data.displayValue}</span>
                 </div>
               ))}
-
-              <button className="print-page" onClick={() => window.print()}>
-                Print <i className="fas fa-print"></i>
-              </button>
             </div>
           )}
           <div className="body">
