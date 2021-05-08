@@ -9,8 +9,8 @@ import ContentfulHelper from "./helpers/ContentfulHelper";
 
 import Nav from "./layouts/nav";
 import Footer from "./layouts/footer";
-import Home from "./routes/home";
-import Recipe from "./routes/recipe";
+import Home from "./routes/Home";
+import Recipe from "./routes/Recipe";
 
 class App extends React.Component {
   constructor(props) {
