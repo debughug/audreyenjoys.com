@@ -1,8 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
+import UITranslations from "../../helpers/UITranslations";
 
 class Home extends React.Component {
   render() {
+    let translationCode = this.props.translationCode;
+    let recipesText = UITranslations[translationCode].Recipes;
+
     return (
       <div className="top-nav">
         <div className="container">
@@ -15,7 +19,7 @@ class Home extends React.Component {
             </div>
             <h1>AudreyEnjoys</h1>
             <div className="links">
-              <Link to="/">Recipes</Link>
+              <Link to="/">{recipesText}</Link>
             </div>
           </div>
           <div className="social-links">

@@ -69,7 +69,7 @@ class App extends React.Component {
 
       View = (
         <Router>
-          <Nav></Nav>
+          <Nav translationCode={translationCode}></Nav>
           <Switch>
             <Route path="/" exact component={Home}>
               <Home recipes={translatedRecipes} />
