@@ -107,7 +107,7 @@ class Recipe extends React.Component {
                         ? "strikethrough"
                         : ""
                     }
-                    onClick={() => this.toggleIngredientsCheckClass(index)}
+                    onClick={() => this.toggleIngredients(index)}
                     key={index}
                   >
                     {entry}
@@ -125,7 +125,7 @@ class Recipe extends React.Component {
                         ? "strikethrough"
                         : ""
                     }
-                    onClick={() => this.toggleInstructionsCheckClass(index)}
+                    onClick={() => this.toggleInstructions(index)}
                     key={index}
                   >
                     {entry}
