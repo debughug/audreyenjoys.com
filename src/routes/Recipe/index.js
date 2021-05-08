@@ -112,12 +112,21 @@ class Recipe extends React.Component {
           {recipe.metaInfo.length && (
             <div className="metas">
               <h2>Overview</h2>
-              {recipe.metaInfo.map((data, index) => (
-                <div className="meta" key={index}>
-                  <span className="key">{data.label}:</span>
-                  <span className="value">{data.displayValue}</span>
-                </div>
-              ))}
+              {recipe.metaInfo.map((data, index) => {
+                let element = null;
+                let isValidMetaInfo = typeof data == "object" && data.isValid;
+
+                if (isValidMetaInfo) {
+                  element = (
+                    <div className="meta" key={index}>
+                      <span className="key">{data.label}:</span>
+                      <span className="value">{data.displayValue}</span>
+                    </div>
+                  );
+                }
+
+                return element;
+              })}
             </div>
           )}
           <div className="body">
