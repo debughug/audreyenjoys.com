@@ -70,13 +70,13 @@ class Recipe extends React.Component {
                 className={translationCode == "es" ? "visible" : "hidden"}
                 onClick={() => this.props.setTranslationCode("en")}
               >
-                Read in English
+                Read in English&#63;
               </button>
               <button
                 className={translationCode == "en" ? "visible" : "hidden"}
                 onClick={() => this.props.setTranslationCode("es")}
               >
-                Leer en Español
+                &iquest;Leer en Español&#63;
               </button>
             </div>
             <AutoplaySlider
@@ -95,7 +95,10 @@ class Recipe extends React.Component {
               ></InstagramLink>
             </div>
           </div>
-          <RecipeMetaInfo metaInfo={recipe.metaInfo}></RecipeMetaInfo>
+          <RecipeMetaInfo
+            metaInfo={recipe.metaInfo}
+            translationCode={translationCode}
+          ></RecipeMetaInfo>
           <div className="body">
             <div className="ingredients">
               <h3>{ingredientsText}</h3>

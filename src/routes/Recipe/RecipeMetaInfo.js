@@ -1,9 +1,12 @@
 import React from "react";
+import UITranslations from "../../helpers/UITranslations";
 
-let RecipeMetaInfo = ({ metaInfo }) => {
+let RecipeMetaInfo = ({ metaInfo, translationCode = "en" }) => {
+  let overviewText = UITranslations[translationCode].Overview;
+
   return (
     <div className="metas">
-      <h2>Overview</h2>
+      <h2>{overviewText}</h2>
       {metaInfo.map((data, index) => {
         let element = null;
         let isValidMetaInfo = typeof data == "object" && data.isValid;

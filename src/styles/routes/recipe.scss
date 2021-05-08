@@ -34,9 +34,12 @@
         button {
           background-color: transparent;
           color: inherit;
-          border-bottom: 1px solid $white-1;
+          border: 2px solid $white-1;
           cursor: pointer;
           font-weight: 600;
+          font-size: 18px;
+          padding: 4px 6px;
+          border-radius: 6px;
 
           &.hidden {
             display: none;
@@ -86,7 +89,7 @@
     .metas {
       margin-bottom: $spacing-base * 2;
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       flex-direction: column;
       width: 100%;
 
@@ -120,6 +123,10 @@
 
   @media all and (max-width: 768px) {
     .content {
+      .metas {
+        align-items: flex-start;
+      }
+
       .body {
         flex-direction: column;
 
