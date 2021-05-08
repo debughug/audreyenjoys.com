@@ -5,6 +5,7 @@ import withAutoplay from "react-awesome-slider/dist/autoplay";
 import InstagramLink from "./InstagramLink";
 import RecipeMetaInfo from "./RecipeMetaInfo";
 import RecipeNotes from "./RecipeNotes";
+import UITranslations from "../../helpers/UITranslations";
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
@@ -50,6 +51,8 @@ class Recipe extends React.Component {
   render() {
     let recipe = this.props.recipe;
     let translationCode = this.props.translationCode;
+    let ingredientsText = UITranslations[translationCode].Ingredients;
+    let instructionsText = UITranslations[translationCode].Instructions;
 
     return (
       <div
@@ -95,7 +98,7 @@ class Recipe extends React.Component {
           <RecipeMetaInfo metaInfo={recipe.metaInfo}></RecipeMetaInfo>
           <div className="body">
             <div className="ingredients">
-              <h3>Ingredients</h3>
+              <h3>{ingredientsText}</h3>
               <ul className="ingredients-list cursor">
                 {recipe.recipeIngredients.map((entry, index) => (
                   <li
@@ -113,7 +116,7 @@ class Recipe extends React.Component {
               </ul>
             </div>
             <div className="instructions">
-              <h3>Instructions</h3>
+              <h3>{instructionsText}</h3>
               <ol className="instructions-list cursor">
                 {recipe.recipeInstructions.map((entry, index) => (
                   <li
@@ -131,7 +134,10 @@ class Recipe extends React.Component {
               </ol>
             </div>
           </div>
-          <RecipeNotes notesRichText={recipe.notes}></RecipeNotes>
+          <RecipeNotes
+            notesRichText={recipe.notes}
+            translationCode={translationCode}
+          ></RecipeNotes>
         </div>
       </div>
     );

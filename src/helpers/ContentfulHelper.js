@@ -1,10 +1,25 @@
+import UITranslations from "./UITranslations";
+
 export default class ContentfulHelper {
-  constructor(assets = [], recipes = []) {
-    this.assets = assets;
-    this.recipes = recipes;
+  constructor(translationCode = "en") {
+    this.assets = [];
+    this.recipes = [];
+    this.translationCode = translationCode;
   }
 
   buildRecipeObject(recipe) {
+    let dayText = UITranslations[this.translationCode].day;
+    let daysText = UITranslations[this.translationCode].days;
+    let hourText = UITranslations[this.translationCode].hour;
+    let hoursText = UITranslations[this.translationCode].hours;
+    let minuteText = UITranslations[this.translationCode].minute;
+    let minutesText = UITranslations[this.translationCode].minutes;
+    let prepTimeText = UITranslations[this.translationCode]["Preparation Time"];
+    let cookTimText = UITranslations[this.translationCode]["Cook Time"];
+    let servingSizeText = UITranslations[this.translationCode]["Serving Size"];
+    let friendsText = UITranslations[this.translationCode].Friends;
+    let difficultyText = UITranslations[this.translationCode].Difficulty;
+
     let getDifficultyValue = (difficulty) => {
       let value = "";
 
@@ -21,9 +36,12 @@ export default class ContentfulHelper {
       var h = Math.floor((seconds % (3600 * 24)) / 3600);
       var m = Math.floor((seconds % 3600) / 60);
 
-      var dDisplay = d > 0 ? d + (d === 1 ? " day, " : " days ") : "";
-      var hDisplay = h > 0 ? h + (h === 1 ? " hour, " : " hours ") : "";
-      var mDisplay = m > 0 ? m + (m === 1 ? " minute, " : " minutes ") : "";
+      var dDisplay =
+        d > 0 ? d + (d === 1 ? ` ${dayText}, ` : ` ${daysText} `) : "";
+      var hDisplay =
+        h > 0 ? h + (h === 1 ? ` ${hourText}, ` : ` ${hoursText} `) : "";
+      var mDisplay =
+        m > 0 ? m + (m === 1 ? ` ${minuteText}, ` : ` ${minutesText} `) : "";
       return dDisplay + hDisplay + mDisplay;
     };
 
@@ -49,22 +67,22 @@ export default class ContentfulHelper {
     let notes = recipe.fields.notes || null;
     let metaInfo = [
       {
-        label: "Preparation Time",
+        label: prepTimeText,
         displayValue: convertMinutestoDays(preparationTime),
         isValid: preparationTime != null,
       },
       {
-        label: "Cook Time",
+        label: cookTimText,
         displayValue: convertMinutestoDays(cookTime),
         isValid: cookTime != null,
       },
       {
-        label: "Serving Size",
-        displayValue: `${servingSize} friends`,
+        label: servingSizeText,
+        displayValue: `${servingSize} ${friendsText}`,
         isValid: servingSize != null,
       },
       {
-        label: "Difficulty",
+        label: difficultyText,
         displayValue: getDifficultyValue(difficulty),
         isValid: difficulty != null,
       },
@@ -83,6 +101,10 @@ export default class ContentfulHelper {
       recipeInstructions,
       notes,
     };
+  }
+
+  setTranslationCode(translationCode) {
+    this.translationCode = translationCode;
   }
 
   setAssets(assets = []) {

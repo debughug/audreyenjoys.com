@@ -43,10 +43,12 @@ class App extends React.Component {
           let Helper = new ContentfulHelper();
           let translatedRecipes = {};
 
+          Helper.setTranslationCode("en");
           Helper.setAssets(enRes.data.includes.Asset);
           Helper.setRecipes(enRes.data.items);
           translatedRecipes.en = Helper.getRecipes();
 
+          Helper.setTranslationCode("es");
           Helper.setAssets(esRes.data.includes.Asset);
           Helper.setRecipes(esRes.data.items);
           translatedRecipes.es = Helper.getRecipes();
