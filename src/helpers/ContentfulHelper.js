@@ -57,7 +57,8 @@ export default class ContentfulHelper {
           )
         : [];
     let allRecipeImagesURLS = [recipeImageURL].concat(recipeSliderURLS);
-    let recipeVideoShareLink = recipe.fields.instagramShareLink;
+    let recipeVideoShareLink = recipe.fields.instagramShareLink || null;
+    let recipeYouTubeVideo = recipe.fields.youTubeVideoId || null;
     let recipeIngredients = recipe.fields.ingredients;
     let recipeInstructions = recipe.fields.instructions;
     let preparationTime = recipe.fields.preparationTime || null;
@@ -97,6 +98,7 @@ export default class ContentfulHelper {
       recipeImageURL,
       allRecipeImagesURLS,
       recipeVideoShareLink,
+      recipeYouTubeVideo,
       recipeIngredients,
       recipeInstructions,
       notes,

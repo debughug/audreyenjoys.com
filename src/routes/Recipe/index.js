@@ -5,6 +5,7 @@ import withAutoplay from "react-awesome-slider/dist/autoplay";
 import InstagramLink from "./InstagramLink";
 import RecipeMetaInfo from "./RecipeMetaInfo";
 import RecipeNotes from "./RecipeNotes";
+import YouTubeModal from "./YouTubeModal";
 import UITranslations from "../../helpers/UITranslations";
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
@@ -29,12 +30,12 @@ class Recipe extends React.Component {
       recipe: this.props.recipe,
       checkedIngredients,
       checkedInstructions,
-      isFirstLoad: true,
+      videoIsOpen: false,
     };
 
     this.toggleIngredients = this.toggleIngredients.bind(this);
-
     this.toggleInstructions = this.toggleInstructions.bind(this);
+    this.setVideoIsOpen = this.setVideoIsOpen.bind(this);
   }
 
   toggleIngredients(index) {
@@ -47,6 +48,10 @@ class Recipe extends React.Component {
     let checkedInstructions = this.state.checkedInstructions;
     checkedInstructions[index] = !checkedInstructions[index];
     this.setState({ checkedInstructions });
+  }
+
+  setVideoIsOpen(videoIsOpen) {
+    this.setState({ videoIsOpen });
   }
 
   componentDidMount() {
@@ -98,6 +103,11 @@ class Recipe extends React.Component {
               <InstagramLink
                 instagramVideoLink={recipe.recipeVideoShareLink}
               ></InstagramLink>
+              <YouTubeModal
+                youTubeVideoId={recipe.recipeYouTubeVideo}
+                videoIsOpen={this.state.videoIsOpen}
+                setVideoIsOpen={this.setVideoIsOpen}
+              ></YouTubeModal>
             </div>
           </div>
           <RecipeMetaInfo

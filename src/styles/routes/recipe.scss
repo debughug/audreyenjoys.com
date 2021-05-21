@@ -71,6 +71,12 @@
 
       .social-links {
         margin-bottom: $spacing-base / 2;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+        max-width: 200px;
 
         a {
           display: flex;
@@ -79,7 +85,7 @@
           color: $white-1;
           flex-direction: column;
 
-          .fa-instagram {
+          .fab {
             font-size: 34px;
           }
         }
