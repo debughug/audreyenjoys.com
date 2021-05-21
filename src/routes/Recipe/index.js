@@ -29,6 +29,7 @@ class Recipe extends React.Component {
       recipe: this.props.recipe,
       checkedIngredients,
       checkedInstructions,
+      isFirstLoad: true,
     };
 
     this.toggleIngredients = this.toggleIngredients.bind(this);
@@ -46,6 +47,10 @@ class Recipe extends React.Component {
     let checkedInstructions = this.state.checkedInstructions;
     checkedInstructions[index] = !checkedInstructions[index];
     this.setState({ checkedInstructions });
+  }
+
+  componentDidMount() {
+    window.scrollTo(0, 0);
   }
 
   render() {
