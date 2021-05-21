@@ -6,7 +6,7 @@ let Home = ({ recipes }) => {
     <div className="route route-home">
       <div className="recipes">
         {recipes.map((recipe, index) => (
-          <RecipeCard recipe={recipe} index={index} key={index}></RecipeCard>
+          <RecipeCard recipe={recipe} index={index} key={index} isHidden={false}></RecipeCard>
         ))}
       </div>
     </div>
