@@ -24,6 +24,9 @@ List of primary technologies used to make this site happen
 
 Working on this, but for now - Audrey runs deploy.js so the S3 Recipes file updates with new content from Contentful.
 
+## Contact
+https://www.linkedin.com/in/debughug/
+
 ---
 
-I enjoy using https://dillinger.io/ for MDs
+I enjoy using https://dillinger.io/ for MDs 
