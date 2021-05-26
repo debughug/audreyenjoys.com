@@ -48,7 +48,8 @@ export default class ContentfulHelper {
     let createdAt = recipe.sys.createdAt;
     let inlineColor = `rgb(${recipe.fields.redColorCode}, ${recipe.fields.greenColorCode}, ${recipe.fields.blueColorCode})`;
     let recipeName = recipe.fields.name.trim();
-    let route = recipeName.toLowerCase().replace(/[\W_]+/g, "-");
+    let pageName = recipe.fields.pageName || "";
+    let route = pageName.toLowerCase().replace(/[\W_]+/g, "-");
     let recipeImageURL = this.getAssetById(recipe.fields.mainImage.sys.id);
     let recipeSliderURLS =
       typeof recipe.fields.subImages === "object"
