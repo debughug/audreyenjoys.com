@@ -36,12 +36,9 @@ export default class ContentfulHelper {
       var h = Math.floor((seconds % (3600 * 24)) / 3600);
       var m = Math.floor((seconds % 3600) / 60);
 
-      var dDisplay =
-        d > 0 ? d + (d === 1 ? ` ${dayText}, ` : ` ${daysText} `) : "";
-      var hDisplay =
-        h > 0 ? h + (h === 1 ? ` ${hourText}, ` : ` ${hoursText} `) : "";
-      var mDisplay =
-        m > 0 ? m + (m === 1 ? ` ${minuteText}, ` : ` ${minutesText} `) : "";
+      var dDisplay = d > 0 ? d + (d === 1 ? ` ${dayText}, ` : ` ${daysText} `) : "";
+      var hDisplay = h > 0 ? h + (h === 1 ? ` ${hourText}, ` : ` ${hoursText} `) : "";
+      var mDisplay = m > 0 ? m + (m === 1 ? ` ${minuteText}, ` : ` ${minutesText} `) : "";
       return dDisplay + hDisplay + mDisplay;
     };
 
@@ -51,12 +48,7 @@ export default class ContentfulHelper {
     let pageName = recipe.fields.pageName || "";
     let route = pageName.toLowerCase().replace(/[\W_]+/g, "-");
     let recipeImageURL = this.getAssetById(recipe.fields.mainImage.sys.id);
-    let recipeSliderURLS =
-      typeof recipe.fields.subImages === "object"
-        ? recipe.fields.subImages.map((recipeSubImage) =>
-            this.getAssetById(recipeSubImage.sys.id)
-          )
-        : [];
+    let recipeSliderURLS = typeof recipe.fields.subImages === "object" ? recipe.fields.subImages.map((recipeSubImage) => this.getAssetById(recipeSubImage.sys.id)) : [];
     let allRecipeImagesURLS = [recipeImageURL].concat(recipeSliderURLS);
     let recipeVideoShareLink = recipe.fields.instagramShareLink || null;
     let recipeYouTubeVideo = recipe.fields.youTubeVideoId || null;
@@ -142,9 +134,7 @@ export default class ContentfulHelper {
       recipes.push(this.buildRecipeObject(recipe));
     });
 
-    recipes = recipes.sort(
-      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-    );
+    recipes = recipes.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
     return recipes;
   }
