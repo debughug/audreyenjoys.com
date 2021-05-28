@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import UITranslations from "../../helpers/UITranslations";
+import SocialMediaLinks from "../../helpers/SocialMediaLinks";
 
 class Home extends React.Component {
   render() {
@@ -12,19 +13,19 @@ class Home extends React.Component {
         <div className="container">
           <div className="nav">
             <div className="logo">
-              <img
-                src="https://audreyenjoys.s3-us-west-2.amazonaws.com/logo-icon.jpg"
-                alt="AudreyEnjoys Profile"
-              />
+              <img src="/icon.png" alt="AudreyEnjoys Profile" />
+              <h1>AudreyEnjoys</h1>
             </div>
-            <h1>AudreyEnjoys</h1>
             <div className="links">
               <Link to="/">{recipesText}</Link>
             </div>
           </div>
           <div className="social-links">
-            <a href="https://www.instagram.com/audreyenjoys/">
-              <i className="fab fa-instagram"></i>
+            <a href={SocialMediaLinks.youtube}>
+              <i class="fab fa-youtube" aria-hidden="true"></i>
+            </a>
+            <a href={SocialMediaLinks.instagram}>
+              <i className="fab fa-instagram" aria-hidden="true"></i>
             </a>
           </div>
         </div>
