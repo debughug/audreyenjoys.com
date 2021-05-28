@@ -37,29 +37,27 @@ class App extends React.Component {
   componentDidMount() {
     let _this = this;
 
-    axios
-      .all([axios.get(Endpoints.recipes.en), axios.get(Endpoints.recipes.es)])
-      .then(
-        axios.spread(function (enRes, esRes) {
-          let Helper = new ContentfulHelper();
-          let translatedRecipes = {};
+    axios.all([axios.get(Endpoints.recipes.en), axios.get(Endpoints.recipes.es)]).then(
+      axios.spread(function (enRes, esRes) {
+        let Helper = new ContentfulHelper();
+        let translatedRecipes = {};
 
-          Helper.setTranslationCode("en");
-          Helper.setAssets(enRes.data.includes.Asset);
-          Helper.setRecipes(enRes.data.items);
-          translatedRecipes.en = Helper.getRecipes();
+        Helper.setTranslationCode("en");
+        Helper.setAssets(enRes.data.includes.Asset);
+        Helper.setRecipes(enRes.data.items);
+        translatedRecipes.en = Helper.getRecipes();
 
-          Helper.setTranslationCode("es");
-          Helper.setAssets(esRes.data.includes.Asset);
-          Helper.setRecipes(esRes.data.items);
-          translatedRecipes.es = Helper.getRecipes();
+        Helper.setTranslationCode("es");
+        Helper.setAssets(esRes.data.includes.Asset);
+        Helper.setRecipes(esRes.data.items);
+        translatedRecipes.es = Helper.getRecipes();
 
-          _this.setState({
-            isLoading: false,
-            translatedRecipes,
-          });
-        })
-      );
+        _this.setState({
+          isLoading: false,
+          translatedRecipes,
+        });
+      })
+    );
   }
 
   render() {

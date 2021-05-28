@@ -48,7 +48,10 @@ export default class ContentfulHelper {
     let pageName = recipe.fields.pageName || "";
     let route = pageName.toLowerCase().replace(/[\W_]+/g, "-");
     let recipeImageURL = this.getAssetById(recipe.fields.mainImage.sys.id);
-    let recipeSliderURLS = typeof recipe.fields.subImages === "object" ? recipe.fields.subImages.map((recipeSubImage) => this.getAssetById(recipeSubImage.sys.id)) : [];
+    let recipeSliderURLS =
+      typeof recipe.fields.subImages === "object"
+        ? recipe.fields.subImages.map((recipeSubImage) => this.getAssetById(recipeSubImage.sys.id))
+        : [];
     let allRecipeImagesURLS = [recipeImageURL].concat(recipeSliderURLS);
     let recipeVideoShareLink = recipe.fields.instagramShareLink || null;
     let recipeYouTubeVideo = recipe.fields.youTubeVideoId || null;

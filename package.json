@@ -20,7 +20,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "deploy": "node ./deploy.js"
+    "deploy": "node ./deploy.js",
+    "prettier-write": "npx prettier --write ."
   },
   "browserslist": {
     "production": [

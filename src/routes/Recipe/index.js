@@ -16,16 +16,8 @@ class Recipe extends React.Component {
 
     this.state = {
       recipe: this.props.recipe,
-      checkedIngredients: [].fill(
-        false,
-        0,
-        this.props.recipe.recipeIngredients.length
-      ),
-      checkedInstructions: [].fill(
-        false,
-        0,
-        this.props.recipe.recipeInstructions.length
-      ),
+      checkedIngredients: [].fill(false, 0, this.props.recipe.recipeIngredients.length),
+      checkedInstructions: [].fill(false, 0, this.props.recipe.recipeInstructions.length),
       videoIsOpen: false,
     };
 
@@ -61,10 +53,7 @@ class Recipe extends React.Component {
     let instructionsText = UITranslations[translationCode].Instructions;
 
     return (
-      <div
-        className="route route-recipe"
-        style={{ backgroundColor: recipe.inlineColor }}
-      >
+      <div className="route route-recipe" style={{ backgroundColor: recipe.inlineColor }}>
         <div className="content">
           <div className="intro">
             <div className="food-intro">
@@ -96,9 +85,7 @@ class Recipe extends React.Component {
               ))}
             </AutoplaySlider>
             <div className="social-links">
-              <InstagramLink
-                instagramVideoLink={recipe.recipeVideoShareLink}
-              ></InstagramLink>
+              <InstagramLink instagramVideoLink={recipe.recipeVideoShareLink}></InstagramLink>
               <YouTubeModal
                 youTubeVideoId={recipe.recipeYouTubeVideo}
                 videoIsOpen={this.state.videoIsOpen}
@@ -106,21 +93,14 @@ class Recipe extends React.Component {
               ></YouTubeModal>
             </div>
           </div>
-          <RecipeMetaInfo
-            metaInfo={recipe.metaInfo}
-            translationCode={translationCode}
-          ></RecipeMetaInfo>
+          <RecipeMetaInfo metaInfo={recipe.metaInfo} translationCode={translationCode}></RecipeMetaInfo>
           <div className="body">
             <div className="ingredients">
               <h3>{ingredientsText}</h3>
               <ul className="ingredients-list cursor">
                 {recipe.recipeIngredients.map((entry, index) => (
                   <li
-                    className={
-                      this.state.checkedIngredients[index]
-                        ? "strikethrough"
-                        : ""
-                    }
+                    className={this.state.checkedIngredients[index] ? "strikethrough" : ""}
                     onClick={() => this.toggleIngredients(index)}
                     key={index}
                   >
@@ -134,11 +114,7 @@ class Recipe extends React.Component {
               <ol className="instructions-list cursor">
                 {recipe.recipeInstructions.map((entry, index) => (
                   <li
-                    className={
-                      this.state.checkedInstructions[index]
-                        ? "strikethrough"
-                        : ""
-                    }
+                    className={this.state.checkedInstructions[index] ? "strikethrough" : ""}
                     onClick={() => this.toggleInstructions(index)}
                     key={index}
                   >
@@ -148,10 +124,7 @@ class Recipe extends React.Component {
               </ol>
             </div>
           </div>
-          <RecipeNotes
-            notesRichText={recipe.notes}
-            translationCode={translationCode}
-          ></RecipeNotes>
+          <RecipeNotes notesRichText={recipe.notes} translationCode={translationCode}></RecipeNotes>
         </div>
       </div>
     );

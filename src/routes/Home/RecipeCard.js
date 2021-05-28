@@ -12,10 +12,7 @@ let RecipeCard = ({ recipe, index, isHidden }) => {
         className="recipe"
         style={{ backgroundColor: recipe.inlineColor }}
       >
-        <div
-          className="food-image"
-          style={{ backgroundImage: `url(${recipe.recipeImageURL}` }}
-        ></div>
+        <div className="food-image" style={{ backgroundImage: `url(${recipe.recipeImageURL}` }}></div>
         <div className="food-name-wrapper">
           <h4 className="food-name">{recipe.recipeName}</h4>
         </div>
