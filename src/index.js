@@ -7,6 +7,7 @@ import axios from "axios";
 
 import Nav from "./layouts/Nav";
 import Footer from "./layouts/Footer";
+import Loading from "./routes/Loading";
 import Home from "./routes/Home";
 import Recipe from "./routes/Recipe";
 
@@ -63,7 +64,7 @@ class App extends React.Component {
 
   render() {
     let isLoading = this.state.isLoading;
-    let View = <div>Loading</div>;
+    let View = <Loading></Loading>;
 
     if (!isLoading) {
       let translationCode = this.state.translationCode;

@@ -1,0 +1,12 @@
+.route-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - #{$spacing-base * 4});
+
+  img {
+    max-width: 150px;
+    height: auto;
+    width: 100%;
+  }
+}
