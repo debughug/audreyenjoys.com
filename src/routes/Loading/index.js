@@ -1,9 +1,9 @@
 import React from "react";
 
-let Loading = ({}) => {
+let Loading = () => {
   return (
     <div className="route route-loading">
-      <img src="/logo.png"></img>
+      <img src="/logo.png" alt="AudreyEnjoys loading icon."></img>
     </div>
   );
 };

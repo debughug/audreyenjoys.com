@@ -14,22 +14,18 @@ class Recipe extends React.Component {
   constructor(props) {
     super(props);
 
-    let checkedIngredients = [].fill(
-      false,
-      0,
-      this.props.recipe.recipeIngredients.length
-    );
-
-    let checkedInstructions = [].fill(
-      false,
-      0,
-      this.props.recipe.recipeInstructions.length
-    );
-
     this.state = {
       recipe: this.props.recipe,
-      checkedIngredients,
-      checkedInstructions,
+      checkedIngredients: [].fill(
+        false,
+        0,
+        this.props.recipe.recipeIngredients.length
+      ),
+      checkedInstructions: [].fill(
+        false,
+        0,
+        this.props.recipe.recipeInstructions.length
+      ),
       videoIsOpen: false,
     };
 

@@ -6,7 +6,7 @@ let YouTubeModal = ({ youTubeVideoId, videoIsOpen, setVideoIsOpen }) => {
 
   if (youTubeVideoId) {
     element = [
-      <a href="#" onClick={() => setVideoIsOpen(true)}>
+      <a href="#youtube-video" onClick={() => setVideoIsOpen(true)}>
         <i className="fab fa-youtube"></i>
       </a>,
       <ModalVideo
