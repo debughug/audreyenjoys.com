@@ -77,13 +77,13 @@ class Recipe extends React.Component {
             </div>
             <div className="language-picker">
               <button
-                className={translationCode == "es" ? "visible" : "hidden"}
+                className={translationCode === "es" ? "visible" : "hidden"}
                 onClick={() => this.props.setTranslationCode("en")}
               >
                 Read in English&#63;
               </button>
               <button
-                className={translationCode == "en" ? "visible" : "hidden"}
+                className={translationCode === "en" ? "visible" : "hidden"}
                 onClick={() => this.props.setTranslationCode("es")}
               >
                 &iquest;Leer en Español&#63;
