@@ -21,8 +21,11 @@ class Home extends React.Component {
             </div>
           </div>
           <div className="social-links">
+            <a href={SocialMediaLinks.tiktok}>
+              <i className="fab fa-tiktok" aria-hidden="true"></i>
+            </a>
             <a href={SocialMediaLinks.youtube}>
-              <i class="fab fa-youtube" aria-hidden="true"></i>
+              <i className="fab fa-youtube" aria-hidden="true"></i>
             </a>
             <a href={SocialMediaLinks.instagram}>
               <i className="fab fa-instagram" aria-hidden="true"></i>
