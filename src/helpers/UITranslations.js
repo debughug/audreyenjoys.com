@@ -1,4 +1,4 @@
-let UITranslations = {
+export default {
   en: {
     Recipes: "Recipes",
     Overview: "Overview",
@@ -36,5 +36,3 @@ let UITranslations = {
     Notes: "Notas",
   },
 };
-
-export default UITranslations;
