@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
-import UITranslations from "../../helpers/UITranslations";
-import SocialMediaLinks from "../../helpers/SocialMediaLinks";
+import UITranslations from "../../configs/UITranslations";
+import SocialMediaLinks from "../../configs/SocialMediaLinks";
 
 class Home extends React.Component {
   render() {

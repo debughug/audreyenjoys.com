@@ -1,5 +1,5 @@
 import React from "react";
-import UITranslations from "../../helpers/UITranslations";
+import UITranslations from "../../configs/UITranslations";
 
 let RecipeMetaInfo = ({ metaInfo, translationCode = "en" }) => {
   let overviewText = UITranslations[translationCode].Overview;

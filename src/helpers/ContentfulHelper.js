@@ -1,4 +1,4 @@
-import UITranslations from "./UITranslations";
+import UITranslations from "../configs/UITranslations";
 
 export default class ContentfulHelper {
   constructor(translationCode = "en") {

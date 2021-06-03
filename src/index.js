@@ -12,7 +12,7 @@ import Home from "./routes/Home";
 import Recipe from "./routes/Recipe";
 
 import ContentfulHelper from "./helpers/ContentfulHelper";
-import Endpoints from "./helpers/Endpoints";
+import Endpoints from "./configs/Endpoints";
 
 class App extends React.Component {
   constructor(props) {

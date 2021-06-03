@@ -6,7 +6,7 @@ import InstagramLink from "./InstagramLink";
 import RecipeMetaInfo from "./RecipeMetaInfo";
 import RecipeNotes from "./RecipeNotes";
 import YouTubeModal from "./YouTubeModal";
-import UITranslations from "../../helpers/UITranslations";
+import UITranslations from "../../configs/UITranslations";
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
