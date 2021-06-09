@@ -3,7 +3,12 @@ $transition: all 0.24s ease-out;
 $max-width: 1440px;
 
 $breakpoint-small: 768px;
+$breakpoint-medium: 1024px;
 
 $white-1: rgb(255, 255, 255);
 $white-2: rgb(250, 250, 250);
 $black-1: rgb(0, 0, 0);
+$black-2: rgba(0, 0, 0, 0.3);
+
+$boxshadow-1x: 0 4px 12px $black-2;
+$boxshadow-2x: 0 8px 18px $black-2;

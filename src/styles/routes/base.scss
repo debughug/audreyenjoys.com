@@ -1,9 +1,0 @@
-.route {
-  margin: 0 auto;
-  max-width: $max-width;
-  padding: ($spacing-base * 2);
-
-  @media all and (max-width: 768px) {
-    padding: ($spacing-base);
-  }
-}

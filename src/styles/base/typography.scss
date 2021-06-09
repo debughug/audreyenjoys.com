@@ -68,9 +68,23 @@ h7 {
   margin-bottom: 10px;
 }
 
+p {
+  margin-bottom: $spacing-base;
+  font-size: 18px;
+}
+
 @media (max-width: $breakpoint-small) {
   body {
     font-size: 26px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: ($spacing-base / 2);
   }
 
   h1 {
@@ -91,5 +105,9 @@ h7 {
 
   h5 {
     font-size: 24px;
+  }
+
+  p {
+    font-size: 17px;
   }
 }

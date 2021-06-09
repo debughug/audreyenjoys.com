@@ -6,15 +6,35 @@
 @import "./base/typography.scss";
 @import "./base/lists.scss";
 @import "./base/links.scss";
+@import "./base/images.scss";
 
 @import "./layouts/nav.scss";
 @import "./layouts/footer.scss";
+@import "./layouts/copy-section.scss";
+@import "./layouts/copy-asset-section.scss";
 
-@import "./routes/base.scss";
 @import "./routes/loading.scss";
 @import "./routes/home.scss";
 @import "./routes/recipe.scss";
 
 body {
   background-color: $white-2;
+}
+
+section {
+  padding: ($spacing-base / 2) 0 $spacing-base;
+
+  @media all and (max-width: $breakpoint-small) {
+    padding: ($spacing-base / 2) 0;
+  }
+}
+
+.route {
+  margin: 0 auto;
+  max-width: $max-width;
+  padding: ($spacing-base * 2);
+
+  @media all and (max-width: $breakpoint-small) {
+    padding: ($spacing-base) ($spacing-base / 2);
+  }
 }

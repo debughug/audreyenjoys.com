@@ -9,6 +9,7 @@ import Nav from "./layouts/Nav";
 import Footer from "./layouts/Footer";
 import Loading from "./routes/Loading";
 import Home from "./routes/Home";
+import Recipes from "./routes/Recipes";
 import Recipe from "./routes/Recipe";
 
 import ContentfulHelper from "./helpers/ContentfulHelper";
@@ -73,12 +74,15 @@ class App extends React.Component {
           <Nav translationCode={translationCode}></Nav>
           <Switch>
             <Route path="/" exact component={Home}>
-              <Home recipes={translatedRecipes} />
+              <Home />
+            </Route>
+            <Route path="/recipes" exact component={Recipes}>
+              <Recipes recipes={translatedRecipes}></Recipes>
             </Route>
             {translatedRecipes.map((recipe, index) => (
               <Route
                 key={index}
-                path={`/recipe/${recipe.route}`}
+                path={`/recipes/${recipe.route}`}
                 exact
                 render={() => (
                   <Recipe

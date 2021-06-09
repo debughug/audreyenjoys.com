@@ -8,7 +8,7 @@ let RecipeCard = ({ recipe, index, isHidden }) => {
     element = (
       <Link
         key={index}
-        to={`/recipe/${recipe.route}`}
+        to={`/recipes/${recipe.route}`}
         className="recipe"
         style={{ backgroundColor: recipe.inlineColor }}
       >

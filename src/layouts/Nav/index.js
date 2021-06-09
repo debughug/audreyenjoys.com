@@ -12,12 +12,14 @@ class Home extends React.Component {
       <div className="top-nav">
         <div className="container">
           <div className="nav">
-            <div className="logo">
-              <img src="/icon.png" alt="AudreyEnjoys Profile" />
-              <h1>AudreyEnjoys</h1>
-            </div>
+            <Link to="/">
+              <div className="logo">
+                <img src="/icon.png" alt="AudreyEnjoys Profile" />
+                <h1>AudreyEnjoys</h1>
+              </div>
+            </Link>
             <div className="links">
-              <Link to="/">{recipesText}</Link>
+              <Link to="/recipes">{recipesText}</Link>
             </div>
           </div>
           <div className="social-links">

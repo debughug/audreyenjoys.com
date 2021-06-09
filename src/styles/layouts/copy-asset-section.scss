@@ -1,0 +1,41 @@
+.copy-asset-section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  .copy-half,
+  .asset-half {
+    padding: 0 ($spacing-base);
+    width: 50%;
+  }
+
+  &.centered {
+    justify-content: center;
+    flex-direction: column-reverse;
+
+    .asset-half {
+      margin-bottom: ($spacing-base * 2);
+
+      img {
+        max-height: 400px;
+        margin: 0 auto;
+        width: auto;
+        display: block;
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-medium) {
+    flex-direction: column-reverse;
+
+    .copy-half,
+    .asset-half {
+      width: 100%;
+    }
+
+    .asset-half {
+      margin-bottom: ($spacing-base / 2);
+    }
+  }
+}
