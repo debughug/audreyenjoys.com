@@ -10,6 +10,7 @@ import Footer from "./layouts/Footer";
 import Loading from "./routes/Loading";
 import Recipes from "./routes/Recipes";
 import Recipe from "./routes/Recipe";
+import Links from "./routes/Links";
 
 import ContentfulHelper from "./helpers/ContentfulHelper";
 import Endpoints from "./configs/Endpoints";
@@ -77,6 +78,10 @@ class App extends React.Component {
             <Route path="/" exact component={Recipes}>
               <Recipes recipes={translatedRecipes}></Recipes>
             </Route>
+            <Route path="/links" exact component={Recipes}>
+              <Links></Links>
+            </Route>
+
             {translatedRecipes.map((recipe, index) => (
               <Route
                 key={index}

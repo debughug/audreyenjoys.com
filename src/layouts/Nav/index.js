@@ -6,6 +6,7 @@ class Home extends React.Component {
   render() {
     let translationCode = this.props.translationCode;
     let recipesText = window.UITranslations[translationCode].Recipes;
+    let linksText = window.UITranslations[translationCode].Links;
 
     return (
       <div className="top-nav">
@@ -19,15 +20,10 @@ class Home extends React.Component {
             </Link>
             <div className="links">
               <Link to="/">{recipesText}</Link>
+              <Link to="/links">{linksText}</Link>
             </div>
           </div>
           <div className="social-links">
-            <a href={SocialMediaLinks.tiktok}>
-              <i className="fab fa-tiktok" aria-hidden="true"></i>
-            </a>
-            <a href={SocialMediaLinks.youtube}>
-              <i className="fab fa-youtube" aria-hidden="true"></i>
-            </a>
             <a href={SocialMediaLinks.instagram}>
               <i className="fab fa-instagram" aria-hidden="true"></i>
             </a>

@@ -1,0 +1,36 @@
+.route-links {
+  .links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 769px;
+    margin: 0 auto;
+    padding: 0 0 ($spacing-base * 2);
+  }
+
+  .fab,
+  .far {
+    font-size: 45px;
+  }
+
+  .link {
+    margin-bottom: $spacing-base;
+    padding: ($spacing-base / 2 + 10) 0;
+    width: 100%;
+    max-width: 300px;
+    background-color: rgb(231, 166, 166);
+    border-radius: 50px;
+    text-align: center;
+    transition: $transition;
+
+    &:hover {
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+      transform: scale(1.042);
+    }
+  }
+
+  a {
+    color: rgb(255, 255, 255);
+  }
+}

@@ -16,6 +16,7 @@ export default {
     Ingredients: "Ingredients",
     Instructions: "Instructions",
     Notes: "Notes",
+    Links: "Links",
   },
   es: {
     Recipes: "Recetas",
@@ -34,5 +35,6 @@ export default {
     Ingredients: "Ingredientes",
     Instructions: "Instrucciones",
     Notes: "Notas",
+    Links: "Enlaces",
   },
 };
