@@ -52,7 +52,7 @@ class Recipe extends React.Component {
     let instructionsText = window.UITranslations[translationCode].Instructions;
 
     return (
-      <div className="route route-recipe" style={{ backgroundColor: recipe.inlineColor }}>
+      <div className="route route-recipe no-max-width" style={{ backgroundColor: recipe.inlineColor }}>
         <div className="content">
           <div className="intro">
             <div className="food-intro">

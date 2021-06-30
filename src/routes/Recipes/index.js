@@ -14,7 +14,7 @@ class Recipe extends React.Component {
     let recipes = this.props.recipes;
 
     return (
-      <div className="route route-home">
+      <div className="route route-recipes">
         <div className="recipes">
           {recipes.map((recipe, index) => (
             <RecipeCard recipe={recipe} index={index} key={index} isHidden={false}></RecipeCard>

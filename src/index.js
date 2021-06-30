@@ -8,7 +8,6 @@ import axios from "axios";
 import Nav from "./layouts/Nav";
 import Footer from "./layouts/Footer";
 import Loading from "./routes/Loading";
-import Home from "./routes/Home";
 import Recipes from "./routes/Recipes";
 import Recipe from "./routes/Recipe";
 
