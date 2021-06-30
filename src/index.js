@@ -75,16 +75,13 @@ class App extends React.Component {
         <Router>
           <Nav translationCode={translationCode}></Nav>
           <Switch>
-            <Route path="/" exact component={Home}>
-              <Home />
-            </Route>
-            <Route path="/recipes" exact component={Recipes}>
+            <Route path="/" exact component={Recipes}>
               <Recipes recipes={translatedRecipes}></Recipes>
             </Route>
             {translatedRecipes.map((recipe, index) => (
               <Route
                 key={index}
-                path={`/recipes/${recipe.route}`}
+                path={`/${recipe.route}`}
                 exact
                 render={() => (
                   <Recipe

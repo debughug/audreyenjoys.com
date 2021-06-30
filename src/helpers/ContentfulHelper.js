@@ -1,5 +1,3 @@
-import UITranslations from "../configs/UITranslations";
-
 export default class ContentfulHelper {
   constructor(translationCode = "en") {
     this.assets = [];
@@ -8,17 +6,17 @@ export default class ContentfulHelper {
   }
 
   buildRecipeObject(recipe) {
-    let dayText = UITranslations[this.translationCode].day;
-    let daysText = UITranslations[this.translationCode].days;
-    let hourText = UITranslations[this.translationCode].hour;
-    let hoursText = UITranslations[this.translationCode].hours;
-    let minuteText = UITranslations[this.translationCode].minute;
-    let minutesText = UITranslations[this.translationCode].minutes;
-    let prepTimeText = UITranslations[this.translationCode]["Preparation Time"];
-    let cookTimText = UITranslations[this.translationCode]["Cook Time"];
-    let servingSizeText = UITranslations[this.translationCode]["Serving Size"];
-    let friendsText = UITranslations[this.translationCode].Friends;
-    let difficultyText = UITranslations[this.translationCode].Difficulty;
+    let dayText = window.UITranslations[this.translationCode].day;
+    let daysText = window.UITranslations[this.translationCode].days;
+    let hourText = window.UITranslations[this.translationCode].hour;
+    let hoursText = window.UITranslations[this.translationCode].hours;
+    let minuteText = window.UITranslations[this.translationCode].minute;
+    let minutesText = window.UITranslations[this.translationCode].minutes;
+    let prepTimeText = window.UITranslations[this.translationCode]["Preparation Time"];
+    let cookTimText = window.UITranslations[this.translationCode]["Cook Time"];
+    let servingSizeText = window.UITranslations[this.translationCode]["Serving Size"];
+    let friendsText = window.UITranslations[this.translationCode].Friends;
+    let difficultyText = window.UITranslations[this.translationCode].Difficulty;
 
     let getDifficultyValue = (difficulty) => {
       let value = "";

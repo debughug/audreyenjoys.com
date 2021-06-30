@@ -6,12 +6,7 @@ let RecipeCard = ({ recipe, index, isHidden }) => {
 
   if (!isHidden) {
     element = (
-      <Link
-        key={index}
-        to={`/recipes/${recipe.route}`}
-        className="recipe"
-        style={{ backgroundColor: recipe.inlineColor }}
-      >
+      <Link key={index} to={`/${recipe.route}`} className="recipe" style={{ backgroundColor: recipe.inlineColor }}>
         <div className="food-image" style={{ backgroundImage: `url(${recipe.recipeImageURL}` }}></div>
         <div className="food-name-wrapper">
           <h4 className="food-name">{recipe.recipeName}</h4>
