@@ -17,7 +17,7 @@ let Links = () => {
         <a className="link" href={SocialMediaLinks.tiktok}>
           <i class="fab fa-tiktok"></i>
         </a>
-        <a className="link" href={SocialMediaLinks.email}>
+        <a className="link" href={`mailto:${SocialMediaLinks.email}`}>
           <i class="far fa-envelope"></i>
         </a>
       </div>
