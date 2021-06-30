@@ -15,6 +15,8 @@ import Recipe from "./routes/Recipe";
 import ContentfulHelper from "./helpers/ContentfulHelper";
 import Endpoints from "./configs/Endpoints";
 
+window.UITranslations = require("./configs/UITranslations").default;
+
 class App extends React.Component {
   constructor(props) {
     super(props);

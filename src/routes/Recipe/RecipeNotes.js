@@ -1,9 +1,8 @@
 import React from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import UITranslations from "../../configs/UITranslations";
 
 let RecipeNotes = ({ notesRichText, translationCode = "en" }) => {
-  let notesText = UITranslations[translationCode].Notes;
+  let notesText = window.UITranslations[translationCode].Notes;
   let element = null;
 
   if (notesRichText) {

@@ -6,7 +6,6 @@ import InstagramLink from "./InstagramLink";
 import RecipeMetaInfo from "./RecipeMetaInfo";
 import RecipeNotes from "./RecipeNotes";
 import YouTubeModal from "./YouTubeModal";
-import UITranslations from "../../configs/UITranslations";
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
@@ -49,8 +48,8 @@ class Recipe extends React.Component {
   render() {
     let recipe = this.props.recipe;
     let translationCode = this.props.translationCode;
-    let ingredientsText = UITranslations[translationCode].Ingredients;
-    let instructionsText = UITranslations[translationCode].Instructions;
+    let ingredientsText = window.UITranslations[translationCode].Ingredients;
+    let instructionsText = window.UITranslations[translationCode].Instructions;
 
     return (
       <div className="route route-recipe" style={{ backgroundColor: recipe.inlineColor }}>
