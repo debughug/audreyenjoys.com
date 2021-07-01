@@ -11,8 +11,8 @@ ol {
       margin: 2px 0 0 -32px;
       border-radius: 100%;
       border: 0;
-      background-color: #1a1a1c;
-      color: #ffffff;
+      background-color: $black-1;
+      color: $white-1;
       width: 25px;
       height: 25px;
       font-size: 12px;
@@ -36,8 +36,8 @@ ul {
       margin: 2px 0 0 -32px;
       border-radius: 100%;
       border: 0;
-      background-color: #1a1a1c;
-      color: #ffffff;
+      background-color: $black-1;
+      color: $white-1;
       width: 25px;
       height: 25px;
       font-size: 12px;
@@ -47,7 +47,7 @@ ul {
 
 ol,
 ul {
-  margin-bottom: 25px;
+  margin-bottom: $spacing-base;
 
   &.cursor {
     cursor: pointer;
@@ -59,7 +59,7 @@ ul {
 
     &.strikethrough {
       text-decoration: line-through;
-      color: rgb(206, 206, 206);
+      color: $white-2;
 
       &::before {
         content: "\2713";

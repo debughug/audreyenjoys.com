@@ -17,7 +17,7 @@
       flex-direction: column;
 
       &:hover {
-        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+        box-shadow: $boxshadow-2x;
         transform: scale(1.042);
       }
 
