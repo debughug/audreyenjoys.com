@@ -55,7 +55,7 @@
         background-size: cover;
         background-color: $white-1;
         max-width: 768px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        box-shadow: $boxshadow-1x;
         border: 8px solid $white-1;
         width: 100%;
         margin-bottom: $spacing-base;

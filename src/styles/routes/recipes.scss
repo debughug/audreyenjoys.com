@@ -11,7 +11,7 @@
       text-align: center;
       margin: 0 ($spacing-base) ($spacing-base * 2);
       width: calc(25% - #{$spacing-base * 2});
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      box-shadow: $boxshadow-1x;
       transition: $transition;
       display: flex;
       flex-direction: column;
