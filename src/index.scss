@@ -1,0 +1,36 @@
+@import "./styles/vendors/reset.scss";
+@import "./styles/vendors/react-awesome-slider.scss";
+@import "./styles/vendors/react-modal-video.scss";
+
+@import "./styles/base/variables.scss";
+@import "./styles/base/typography.scss";
+@import "./styles/base/lists.scss";
+@import "./styles/base/links.scss";
+@import "./styles/base/images.scss";
+
+@import "./layouts/nav/index.scss";
+@import "./layouts/footer/index.scss";
+
+@import "./routes/loading/index.scss";
+@import "./routes/recipes/index.scss";
+@import "./routes/recipe/index.scss";
+@import "./routes/links/index.scss";
+@import "./routes/loading/index.scss";
+
+body {
+  background-color: $white-2;
+}
+
+.route {
+  margin: 0 auto;
+  max-width: $max-width;
+  padding: ($spacing-base * 2);
+
+  @media all and (max-width: $breakpoint-small) {
+    padding: ($spacing-base) ($spacing-base / 2);
+  }
+
+  &.no-max-width {
+    max-width: 100%;
+  }
+}
