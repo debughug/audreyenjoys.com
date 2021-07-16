@@ -11,6 +11,9 @@ let Links = () => {
         <a className="link" href={SocialMediaLinks.instagram}>
           <i class="fab fa-instagram"></i>
         </a>
+        <a className="link" href={SocialMediaLinks.discord}>
+          <i class="fab fa-discord"></i>
+        </a>
         <a className="link" href={SocialMediaLinks.youtube}>
           <i class="fab fa-youtube"></i>
         </a>

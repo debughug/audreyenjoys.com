@@ -1,5 +1,4 @@
 .route-links {
-  min-height: calc(100vh - 200px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,6 +28,8 @@
     border-radius: 50px;
     text-align: center;
     transition: $transition;
+    animation: fadein 420ms linear forwards;
+    -webkit-animation: fadein 420ms linear forwards;
 
     &:hover {
       box-shadow: $boxshadow-2x;

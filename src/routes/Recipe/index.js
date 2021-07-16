@@ -2,6 +2,7 @@ import React from "react";
 import AwesomeSlider from "react-awesome-slider";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
 
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import InstagramLink from "./InstagramLink";
 import RecipeMetaInfo from "./RecipeMetaInfo";
 import RecipeNotes from "./RecipeNotes";
@@ -47,6 +48,7 @@ class Recipe extends React.Component {
 
   render() {
     let recipe = this.props.recipe;
+    let recipes = this.props.recipes;
     let translationCode = this.props.translationCode;
     let ingredientsText = window.UITranslations[translationCode].Ingredients;
     let instructionsText = window.UITranslations[translationCode].Instructions;

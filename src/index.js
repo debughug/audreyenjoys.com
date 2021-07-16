@@ -90,6 +90,7 @@ class App extends React.Component {
                 render={() => (
                   <Recipe
                     recipe={recipe}
+                    recipes={translatedRecipes}
                     translationCode={translationCode}
                     setTranslationCode={this.setTranslationCode}
                   ></Recipe>
