@@ -4,6 +4,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import axios from "axios";
+import T from "i18n-react";
 
 import Nav from "./layouts/Nav";
 import Footer from "./layouts/Footer";
@@ -14,9 +15,12 @@ import Links from "./routes/Links";
 
 import ContentfulHelper from "./helpers/ContentfulHelper";
 import Endpoints from "./configs/Endpoints";
+import TranslationEN from "./configs/Translations-EN";
+import TranslationsES from "./configs/Translation-ES";
 
 window.UITranslations = require("./configs/UITranslations").default;
 
+T.setTexts(TranslationEN);
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -31,6 +35,12 @@ class App extends React.Component {
 
   setTranslationCode(translationCode = "") {
     if (translationCode) {
+      if (translationCode == "en") {
+        T.setTexts(TranslationEN);
+      } else {
+        T.setTexts(TranslationsES);
+      }
+
       this.setState({
         translationCode,
       });
@@ -74,6 +84,7 @@ class App extends React.Component {
       View = (
         <Router>
           <Nav translationCode={translationCode}></Nav>
+
           <Switch>
             <Route path="/" exact component={Recipes}>
               <Recipes recipes={translatedRecipes}></Recipes>
@@ -81,7 +92,6 @@ class App extends React.Component {
             <Route path="/links" exact component={Recipes}>
               <Links></Links>
             </Route>
-
             {translatedRecipes.map((recipe, index) => (
               <Route
                 key={index}
@@ -98,6 +108,7 @@ class App extends React.Component {
               ></Route>
             ))}
           </Switch>
+
           <Footer></Footer>
         </Router>
       );

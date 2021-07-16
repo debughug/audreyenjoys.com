@@ -1,13 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
+import T from "i18n-react";
+
 import SocialMediaLinks from "../../configs/SocialMediaLinks";
 
 class Home extends React.Component {
   render() {
-    let translationCode = this.props.translationCode;
-    let recipesText = window.UITranslations[translationCode].Recipes;
-    let linksText = window.UITranslations[translationCode].Links;
-
     return (
       <div className="top-nav">
         <div className="container">
@@ -19,8 +17,12 @@ class Home extends React.Component {
               </div>
             </Link>
             <div className="links">
-              <Link to="/">{recipesText}</Link>
-              <Link to="/links">{linksText}</Link>
+              <Link to="/">
+                <T.span text="Recipes"></T.span>
+              </Link>
+              <Link to="/links">
+                <T.span text="Links"></T.span>
+              </Link>
             </div>
           </div>
           <div className="social-links">
