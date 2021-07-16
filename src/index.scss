@@ -2,13 +2,13 @@
 @import "~react-modal-video/scss/modal-video.scss";
 @import "~react-awesome-slider/dist/styles.css";
 
-@import "./styles/base/variables.scss";
-@import "./styles/base/typography.scss";
-@import "./styles/base/animations.scss";
-@import "./styles/base/lists.scss";
-@import "./styles/base/links.scss";
-@import "./styles/base/images.scss";
-@import "./styles/base/card-decks.scss";
+@import "./styles/variables.scss";
+@import "./styles/typography.scss";
+@import "./styles/animations.scss";
+@import "./styles/lists.scss";
+@import "./styles/links.scss";
+@import "./styles/images.scss";
+@import "./styles/card-decks.scss";
 
 @import "./layouts/nav/index.scss";
 @import "./layouts/footer/index.scss";
