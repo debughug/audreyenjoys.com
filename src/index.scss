@@ -1,6 +1,6 @@
-@import "./styles/vendors/reset.scss";
-@import "./styles/vendors/react-awesome-slider.scss";
-@import "./styles/vendors/react-modal-video.scss";
+@import "~reset-css/sass/reset";
+@import "~react-modal-video/scss/modal-video.scss";
+@import "~react-awesome-slider/dist/styles.css";
 
 @import "./styles/base/variables.scss";
 @import "./styles/base/typography.scss";

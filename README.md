@@ -19,6 +19,7 @@ List of primary technologies used to make this site happen
 | dotenv v8.2.0                               | To store my secret .env file and not expose it in this repo          |
 | Contentful                                  | So Audrey has a way to update content and not bump me to code it in. |
 | Contentful Rich-Text-React-Renderer v14.1.3 | No reinventing the wheel, Contentful has my back here.               |
+| Reset CSS v5.0.1                            | So all browsers start with the same base for styles                  |
 
 ## Deployment
 

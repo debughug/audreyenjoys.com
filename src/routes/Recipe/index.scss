@@ -49,7 +49,6 @@
       }
 
       .awssld {
-        border-radius: 15px;
         position: relative;
         background-position-x: center;
         background-position-y: center;
@@ -61,12 +60,8 @@
         width: 100%;
         margin-bottom: $spacing-base;
 
-        .awssld__box {
-          .awssld__content {
-            img {
-              border-radius: 15px;
-            }
-          }
+        .awssld__timer {
+          opacity: 0;
         }
       }
 

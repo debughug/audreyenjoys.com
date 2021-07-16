@@ -17,7 +17,6 @@ let YouTubeModal = ({ youTubeVideoId, videoIsOpen, setVideoIsOpen }) => {
           videoId={youTubeVideoId}
           onClose={() => setVideoIsOpen(false)}
         />
-        ,
       </div>
     );
   }
