@@ -11,15 +11,14 @@ class Recipe extends React.Component {
   }
 
   render() {
-    let recipes = this.props.recipes;
+    let recipes = this.props.recipes || [];
+    let recipeCards = recipes.map((recipe, index) => (
+      <RecipeCard recipe={recipe} index={index} key={index} isHidden={false}></RecipeCard>
+    ));
 
     return (
       <div className="route route-recipes">
-        <div className="recipes">
-          {recipes.map((recipe, index) => (
-            <RecipeCard recipe={recipe} index={index} key={index} isHidden={false}></RecipeCard>
-          ))}
-        </div>
+        <div className="card-deck">{recipeCards}</div>
       </div>
     );
   }

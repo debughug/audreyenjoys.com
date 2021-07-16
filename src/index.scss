@@ -4,18 +4,19 @@
 
 @import "./styles/base/variables.scss";
 @import "./styles/base/typography.scss";
+@import "./styles/base/animations.scss";
 @import "./styles/base/lists.scss";
 @import "./styles/base/links.scss";
 @import "./styles/base/images.scss";
+@import "./styles/base/card-decks.scss";
 
 @import "./layouts/nav/index.scss";
 @import "./layouts/footer/index.scss";
 
-@import "./routes/loading/index.scss";
-@import "./routes/recipes/index.scss";
-@import "./routes/recipe/index.scss";
-@import "./routes/links/index.scss";
-@import "./routes/loading/index.scss";
+@import "./routes/Loading/index.scss";
+@import "./routes/Recipe/index.scss";
+@import "./routes/Recipes/index.scss";
+@import "./routes/Links/index.scss";
 
 body {
   background-color: $white-2;

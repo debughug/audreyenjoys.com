@@ -1,0 +1,72 @@
+.card-deck {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 0 ($spacing-base * -1);
+
+  .card {
+    color: $white-1;
+    text-align: center;
+    margin: 0 ($spacing-base) ($spacing-base * 2);
+    width: calc(25% - #{$spacing-base * 2});
+    box-shadow: $boxshadow-1x;
+    transition: $transition;
+    display: flex;
+    flex-direction: column;
+    animation: fadein 420ms linear forwards;
+    -webkit-animation: fadein 420ms linear forwards;
+
+    &:hover {
+      box-shadow: $boxshadow-2x;
+      transform: $scale-small;
+    }
+
+    .card-image {
+      background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding-top: 74.18%;
+    }
+
+    .card-content {
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      padding: $spacing-base / 2;
+      flex: 1 1 auto;
+
+      .card-name {
+        margin: 0;
+      }
+    }
+  }
+}
+
+@media all and (max-width: $breakpoint-medium) {
+  .card-deck {
+    margin: 0 ($spacing-base / -2);
+
+    .card {
+      width: calc(33% - #{$spacing-base * 2});
+    }
+  }
+}
+
+@media all and (max-width: $breakpoint-xsmall) {
+  .card-deck {
+    .card {
+      width: calc(50% - #{$spacing-base * 2});
+    }
+  }
+}
+
+@media all and (max-width: $breakpoint-tiny) {
+  .card-deck {
+    .card {
+      width: calc(100% - #{$spacing-base * 2});
+      margin-bottom: ($spacing-base * 2);
+    }
+  }
+}
