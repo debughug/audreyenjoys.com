@@ -1,6 +1,7 @@
 import React from "react";
 import AwesomeSlider from "react-awesome-slider";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
+import T from "i18n-react";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import InstagramLink from "./InstagramLink";
@@ -48,17 +49,14 @@ class Recipe extends React.Component {
 
   render() {
     let recipe = this.props.recipe;
-    let recipes = this.props.recipes;
     let translationCode = this.props.translationCode;
-    let ingredientsText = window.UITranslations[translationCode].Ingredients;
-    let instructionsText = window.UITranslations[translationCode].Instructions;
 
     return (
       <div className="route route-recipe no-max-width" style={{ backgroundColor: recipe.inlineColor }}>
         <div className="content">
           <div className="intro">
             <div className="food-intro">
-              <h6>AudreyEnjoys</h6>
+              <h6>{T.translate("AudreyEnjoys")}</h6>
               <h1>{recipe.recipeName}</h1>
             </div>
             <div className="language-picker">
@@ -94,10 +92,10 @@ class Recipe extends React.Component {
               ></YouTubeModal>
             </div>
           </div>
-          <RecipeMetaInfo metaInfo={recipe.metaInfo} translationCode={translationCode}></RecipeMetaInfo>
+          <RecipeMetaInfo metaInfo={recipe.metaInfo}></RecipeMetaInfo>
           <div className="body">
             <div className="ingredients">
-              <h3>{ingredientsText}</h3>
+              <h3>{T.translate("Ingredients")}</h3>
               <ul className="ingredients-list cursor">
                 {recipe.recipeIngredients.map((entry, index) => (
                   <li
@@ -111,7 +109,7 @@ class Recipe extends React.Component {
               </ul>
             </div>
             <div className="instructions">
-              <h3>{instructionsText}</h3>
+              <h3>{T.translate("Instructions")}</h3>
               <ol className="instructions-list cursor">
                 {recipe.recipeInstructions.map((entry, index) => (
                   <li
@@ -125,7 +123,7 @@ class Recipe extends React.Component {
               </ol>
             </div>
           </div>
-          <RecipeNotes notesRichText={recipe.notes} translationCode={translationCode}></RecipeNotes>
+          <RecipeNotes notesRichText={recipe.notes}></RecipeNotes>
         </div>
       </div>
     );

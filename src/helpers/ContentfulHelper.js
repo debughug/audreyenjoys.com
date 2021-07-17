@@ -1,3 +1,5 @@
+import T from "i18n-react";
+
 export default class ContentfulHelper {
   constructor(translationCode = "en") {
     this.assets = [];
@@ -6,17 +8,17 @@ export default class ContentfulHelper {
   }
 
   buildRecipeObject(recipe) {
-    let dayText = window.UITranslations[this.translationCode].day;
-    let daysText = window.UITranslations[this.translationCode].days;
-    let hourText = window.UITranslations[this.translationCode].hour;
-    let hoursText = window.UITranslations[this.translationCode].hours;
-    let minuteText = window.UITranslations[this.translationCode].minute;
-    let minutesText = window.UITranslations[this.translationCode].minutes;
-    let prepTimeText = window.UITranslations[this.translationCode]["Preparation Time"];
-    let cookTimText = window.UITranslations[this.translationCode]["Cook Time"];
-    let servingSizeText = window.UITranslations[this.translationCode]["Serving Size"];
-    let friendsText = window.UITranslations[this.translationCode].Friends;
-    let difficultyText = window.UITranslations[this.translationCode].Difficulty;
+    let dayText = T.translate("day");
+    let daysText = T.translate("days");
+    let hourText = T.translate("hour");
+    let hoursText = T.translate("hours");
+    let minuteText = T.translate("minute");
+    let minutesText = T.translate("minutes");
+    let prepTimeText = T.translate("Preparation Time");
+    let cookTimText = T.translate("Cook Time");
+    let servingSizeText = T.translate("Serving Size");
+    let friendsText = T.translate("Friends");
+    let difficultyText = T.translate("Difficulty");
 
     let getDifficultyValue = (difficulty) => {
       let value = "";

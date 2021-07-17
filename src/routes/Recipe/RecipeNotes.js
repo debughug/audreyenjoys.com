@@ -1,14 +1,14 @@
 import React from "react";
+import T from "i18n-react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
-let RecipeNotes = ({ notesRichText, translationCode = "en" }) => {
-  let notesText = window.UITranslations[translationCode].Notes;
+let RecipeNotes = ({ notesRichText }) => {
   let element = null;
 
   if (notesRichText) {
     element = (
       <div className="notes">
-        <h4>{notesText}</h4>
+        <h4>{T.translate("Notes")}</h4>
         {documentToReactComponents(notesRichText)}
       </div>
     );

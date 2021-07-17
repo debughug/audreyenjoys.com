@@ -15,12 +15,10 @@ import Links from "./routes/Links";
 
 import ContentfulHelper from "./helpers/ContentfulHelper";
 import Endpoints from "./configs/Endpoints";
-import TranslationEN from "./configs/Translations-EN";
-import TranslationsES from "./configs/Translation-ES";
+import UITranslations from "./configs/UITranslations";
 
-window.UITranslations = require("./configs/UITranslations").default;
+T.setTexts(UITranslations.en);
 
-T.setTexts(TranslationEN);
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -35,12 +33,7 @@ class App extends React.Component {
 
   setTranslationCode(translationCode = "") {
     if (translationCode) {
-      if (translationCode == "en") {
-        T.setTexts(TranslationEN);
-      } else {
-        T.setTexts(TranslationsES);
-      }
-
+      T.setTexts(UITranslations[translationCode]);
       this.setState({
         translationCode,
       });

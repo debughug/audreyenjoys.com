@@ -1,5 +1,6 @@
 export default {
   en: {
+    AudreyEnjoys: "AudreyEnjoys",
     Recipes: "Recipes",
     Overview: "Overview",
     "Preparation Time": "Preparation Time",
@@ -17,8 +18,10 @@ export default {
     Instructions: "Instructions",
     Notes: "Notes",
     Links: "Links",
+    FooterCopyright: "© Copyright 2021 - AudreyEnjoys",
   },
   es: {
+    AudreyEnjoys: "AudreyEnjoys",
     Recipes: "Recetas",
     Overview: "Descripción general",
     "Preparation Time": "Tiempo de preparación",
@@ -36,5 +39,6 @@ export default {
     Instructions: "Instrucciones",
     Notes: "Notas",
     Links: "Enlaces",
+    FooterCopyright: "© Copyright 2021 - AudreyEnjoys",
   },
 };

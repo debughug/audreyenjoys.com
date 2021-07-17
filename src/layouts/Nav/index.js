@@ -13,7 +13,7 @@ class Home extends React.Component {
             <Link to="/">
               <div className="logo">
                 <img src="/icon.png" alt="AudreyEnjoys Profile" />
-                <h1>AudreyEnjoys</h1>
+                <h1>{T.translate("AudreyEnjoys")}</h1>
               </div>
             </Link>
             <div className="links">
