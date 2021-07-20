@@ -44,6 +44,7 @@ export default class ContentfulHelper {
 
     let createdAt = recipe.sys.createdAt;
     let inlineColor = `rgb(${recipe.fields.redColorCode}, ${recipe.fields.greenColorCode}, ${recipe.fields.blueColorCode})`;
+    let inlineOpacityColor = `rgba(${recipe.fields.redColorCode}, ${recipe.fields.greenColorCode}, ${recipe.fields.blueColorCode}, 0.84)`;
     let recipeName = recipe.fields.name.trim();
     let pageName = recipe.fields.pageName || "";
     let route = pageName.toLowerCase().replace(/[\W_]+/g, "-");
@@ -90,6 +91,7 @@ export default class ContentfulHelper {
       createdAt,
       recipeName,
       inlineColor,
+      inlineOpacityColor,
       metaInfo,
       recipeImageURL,
       allRecipeImagesURLS,
