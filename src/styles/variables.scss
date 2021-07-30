@@ -1,12 +1,9 @@
-$spacing-base: 25px;
-
-$transition: all 0.24s ease-out;
-$transition-2x: all 0.48s ease-out;
-$transition-3x: all 0.96s ease-out;
-
-$scale-small: scale(1.042);
-
-$max-width: 1440px;
+$transition-1x-time: 0.24x;
+$transition-1x: all $transition-1x-time ease-out;
+$transition-2x-time: 0.48s;
+$transition-2x: all $transition-2x-time ease-out;
+$transition-3x-time: 0.96x;
+$transition-3x: all $transition-3x-time ease-out;
 
 $breakpoint-tiny: 425px;
 $breakpoint-xsmall: 576px;
@@ -23,3 +20,9 @@ $pink: rgb(231, 166, 166);
 
 $boxshadow-1x: 0 4px 12px $black-2;
 $boxshadow-2x: 0 8px 18px $black-2;
+
+$spacing-base: 25px;
+
+$scale-small: scale(1.042);
+
+$max-width: 1440px;
