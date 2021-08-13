@@ -49,7 +49,6 @@ class Recipe extends React.Component {
 
   render() {
     let recipe = this.props.recipe;
-    let translationCode = this.props.translationCode;
 
     return (
       <div className="route route-recipe no-max-width" style={{ backgroundColor: recipe.inlineColor }}>
@@ -58,20 +57,6 @@ class Recipe extends React.Component {
             <div className="food-intro">
               <h6>{T.translate("AudreyEnjoys")}</h6>
               <h1>{recipe.recipeName}</h1>
-            </div>
-            <div className="language-picker">
-              <button
-                className={translationCode === "es" ? "visible" : "hidden"}
-                onClick={() => this.props.setTranslationCode("en")}
-              >
-                Read in English&#63;
-              </button>
-              <button
-                className={translationCode === "en" ? "visible" : "hidden"}
-                onClick={() => this.props.setTranslationCode("es")}
-              >
-                &iquest;Leer en Español&#63;
-              </button>
             </div>
             <AutoplaySlider
               infinite={recipe.allRecipeImagesURLS.length > 0}

@@ -21,14 +21,9 @@
     &:hover,
     &:focus {
       box-shadow: $boxshadow-1x;
-      transform: $scale-small;
-
-      .card-image {
-        background-size: 120%;
-      }
 
       .card-content {
-        opacity: 1;
+        opacity: 0;
       }
     }
   }
@@ -39,11 +34,10 @@
     background-position: center;
     background-repeat: no-repeat;
     padding-top: 74.18%;
-    transition: $transition-2x;
   }
 
   .card-content {
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(86, 86, 86, 0.471);
     justify-content: center;
     align-items: center;
     display: flex;
@@ -54,8 +48,10 @@
     left: 0;
     bottom: 0;
     right: 0;
-    opacity: 0;
-    transition: $transition-2x;
+    opacity: 0.9;
+    width: 50%;
+    height: 50%;
+    transition: inherit;
 
     .card-name {
       margin: 0;

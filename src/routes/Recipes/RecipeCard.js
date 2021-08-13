@@ -8,8 +8,8 @@ let RecipeCard = ({ recipe, index, isHidden }) => {
     element = (
       <Link key={index} to={`/${recipe.route}`} className="card" style={{ borderColor: recipe.inlineColor }}>
         <div className="card-image" style={{ backgroundImage: `url(${recipe.recipeImageURL}` }}></div>
-        <div className="card-content" style={{ backgroundColor: recipe.inlineOpacityColor }}>
-          <h4 className="card-name">{recipe.recipeName}</h4>
+        <div className="card-content" style={{ border: `2px solid ${recipe.inlineColor}` }}>
+          <h5 className="card-name">{recipe.recipeName}</h5>
         </div>
       </Link>
     );

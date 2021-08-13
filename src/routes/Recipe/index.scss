@@ -29,25 +29,6 @@
         text-align: center;
       }
 
-      .language-picker {
-        margin-bottom: $spacing-base;
-
-        button {
-          background-color: transparent;
-          color: inherit;
-          border: 2px solid $white-1;
-          cursor: pointer;
-          font-weight: 600;
-          font-size: 18px;
-          padding: 4px 6px;
-          border-radius: 6px;
-
-          &.hidden {
-            display: none;
-          }
-        }
-      }
-
       .awssld {
         position: relative;
         background-position-x: center;

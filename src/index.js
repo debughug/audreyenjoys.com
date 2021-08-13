@@ -71,12 +71,11 @@ class App extends React.Component {
     let View = <Loading></Loading>;
 
     if (!isLoading) {
-      let translationCode = this.state.translationCode;
-      let translatedRecipes = this.state.translatedRecipes[translationCode];
+      let translatedRecipes = this.state.translatedRecipes[this.state.translationCode];
 
       View = (
         <Router>
-          <Nav translationCode={translationCode}></Nav>
+          <Nav></Nav>
 
           <Switch>
             <Route path="/" exact component={Recipes}>
@@ -94,7 +93,6 @@ class App extends React.Component {
                   <Recipe
                     recipe={recipe}
                     recipes={translatedRecipes}
-                    translationCode={translationCode}
                     setTranslationCode={this.setTranslationCode}
                   ></Recipe>
                 )}
